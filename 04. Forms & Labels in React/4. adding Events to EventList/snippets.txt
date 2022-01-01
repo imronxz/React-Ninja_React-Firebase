@@ -1,0 +1,40 @@
+_App.js
+
+  const [events, setEvents] = useState([]);
+
+ln.17 const addEvent = (event) => {
+      // TODO: return new array with event(handleSubmit()_from_NewEventForm.js)
+      setEvents([...events, event]);
+      setShowModal(false); //TODO: close modal after submit
+       
+      /* FIXME: taking prevEvents to newEvent
+      setEvents((prevEvents) => {
+          return [...prevEvents, event];
+        }); 
+      */    
+      };
+
+ln.47 {showModal && (
+        <Modal dinamicInlStyles={true}>
+          <NewEventForm addEvent={addEvent} /> //TODO: props addEvent
+        </Modal>
+      )}
+
+_NewEventForm.js
+
+
+ln.4 export default function NewEventForm({ addEvent }) {
+
+ln.13 const handleSubmit = (e) => {
+      e.preventDefault();
+
+      const event = {
+        title: title,
+        date: date,
+        id: Date.now().toString().slice(5),
+      };
+      addEvent(event); //TODO: passing props addEvent(event)
+      resetForm();
+      };
+
+}
