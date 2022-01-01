@@ -1,0 +1,13 @@
+_NewEventForm.js
+ln.13   const handleSubmit = (e) => {
+          e.preventDefault();
+          const event = {
+            title: title,
+            date: date,
+            id: Date.now().toString().slice(5),
+          };
+          console.log(event);
+          resetForm();
+        };
+
+ln.25    <form className="new-event-form" onSubmit={handleSubmit}>
