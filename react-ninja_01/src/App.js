@@ -39,7 +39,6 @@ function App(props) {
   return (
     <div className="App">
       <Title title="Events in Your Area 🐱‍🏍" subtitle={subtitle} />
-      <Title title="another title" subtitle="another subtitle" />
 
       {<button onClick={() => setShowModal(true)}>Show Modal</button>}
 
