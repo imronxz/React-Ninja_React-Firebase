@@ -43,10 +43,13 @@ function App() {
 
       {showModal && (
         <Modal handleClose={handleClose}>
-          <h2>10% Off Coupon Code 🐱‍🏍</h2>
-          <p>Use the code NINJA10 at the checkout. 🛒</p>
-
-          <a href="#">Find out more..</a>
+          <h1>Terms and Conditions</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et aliquid at consequatur optio asperiores
+            similique quo dignissimos, veniam reprehenderit numquam non enim dolor quas ullam! Sunt eligendi quisquam
+            perferendis provident.
+          </p>
+          <a href="$">Find out more..</a>
         </Modal>
       )}
 
