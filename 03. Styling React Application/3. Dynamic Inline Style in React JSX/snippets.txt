@@ -1,0 +1,13 @@
+_App.js
+
+ln.46        <Modal handleClose={handleClose} dinamicInlStyles={false}>
+
+_Modal.js
+
+ln.12   style={{
+          border: '2px solid ',
+          borderColor: dinamicInlStyles ? '#00ff00' : '#ff4500',
+          textAlign: 'center',
+          padding: '10px',
+          backgroundColor: '#fff8dc',
+        }}
