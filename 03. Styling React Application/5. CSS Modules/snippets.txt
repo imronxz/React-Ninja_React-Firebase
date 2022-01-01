@@ -1,0 +1,19 @@
+_EventList.js
+
+ln.1  import styles from './EventList.module.css'; //import styles module
+        <div className={styles.card} key={event.id}>
+
+_EventList.module.css
+
+ln.1    .card {
+        border: 1px solid #eee;
+        box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        max-width: 400px;
+        margin: 20px auto;
+        border-radius: 4px;
+        }
+
+ln.10   .card button {
+        background-color: #555;
+        }
