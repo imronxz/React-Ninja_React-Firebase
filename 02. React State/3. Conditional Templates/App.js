@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
+  // TODO: state Hooks Conditional
   const [showEvent, setShowEvent] = useState(true);
   // TODO: state Hooks array
   const [events, setEvents] = useState([
