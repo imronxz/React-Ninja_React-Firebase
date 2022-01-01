@@ -1,0 +1,11 @@
+<div 
+  className="modal"
+        style={{
+          border: '4px solid ',
+          borderColor: '#ff4500',
+          textAlign: 'center',
+          padding: '10px',
+          backgroundColor: '#fff8dc',
+        }}
+      >
+</div>
