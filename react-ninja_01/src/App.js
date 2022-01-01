@@ -43,7 +43,7 @@ function App(props) {
       {<button onClick={() => setShowModal(true)}>Show Modal</button>}
 
       {showModal && (
-        <Modal handleClose={handleClose} dinamicInlStyles={false}>
+        <Modal handleClose={handleClose} dinamicInlStyles={true}>
           <h2>10% Off Coupon Code 🐱‍🏍</h2>
           <p>Use the code NINJA10 at the checkout. 🛒</p>
 

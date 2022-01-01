@@ -1,0 +1,11 @@
+_Modal.js
+ln.20   <button className={dinamicInlStyles ? 'sales-btn' : ''}>
+
+_Modal.css
+
+ln.21  .modal .sales-btn {
+        border: 2px solid #333;
+        border-radius: 0.5rem;
+        font-size: 14px;
+        text-transform: uppercase;
+        }
