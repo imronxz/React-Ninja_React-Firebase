@@ -9,7 +9,17 @@ function App() {
     { title: 'race on moo moo farm', id: 3 },
   ]);
 
-  const handleClick = (id) => {
+  /* const handleClicka = (id) => {
+    setEvents(
+      events.filter((e) => {
+        return id !== e.id;
+      }),
+    );
+    console.log(id);
+  }; */
+
+  // TODO: prevEvents
+  const handlePrev = (id) => {
     setEvents((prevEvents) => {
       return prevEvents.filter((e) => {
         return id !== e.id;
@@ -26,7 +36,7 @@ function App() {
             {index} - {event.title}
             <button
               onClick={() => {
-                handleClick(event.id);
+                handlePrev(event.id);
               }}
             >
               delete event
