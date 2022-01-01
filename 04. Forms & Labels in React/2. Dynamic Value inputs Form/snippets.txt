@@ -1,0 +1,11 @@
+_NewEventForm.js
+
+ln.8    const resetForm = () => {
+        setTitle('');
+        setDate('');
+        };
+
+ln.20          value={title} /*TODO: controlled inputs Dynamic value*/
+ln.29          value={date} /*TODO: controlled inputs Dynamic value*/
+      
+ln.38      <p onClick={resetForm}>Reset Form</p>
