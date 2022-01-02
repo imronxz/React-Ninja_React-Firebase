@@ -1,0 +1,42 @@
+_db.json
+
+      "location": "international"
+      "location": "lokal"
+
+_TripList.js
+
+const [url, setUrl] = useState('http://localhost:3001/trips');
+
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setTrips(res.data);
+    });
+  }, [url]); //FIXME: useEffect Dependency Array
+
+      <div className="filters">
+        <button onClick={() => setUrl('http://localhost:3001/trips?location=lokal')}>Local Trips</button>
+        <button onClick={() => setUrl('http://localhost:3001/trips?location=international')}>
+          International Trips
+        </button>
+      </div>
+
+_TripList.css
+
+
+.trip-list .filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filters button {
+  background: #74bf9d;
+  color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Cascadia Mono', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
