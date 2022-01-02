@@ -1,0 +1,16 @@
+_App.js
+
+    const shuffledCards = ()=>{
+        setChoiceOne(null);
+        setChoiceTwo(null);
+    }
+
+  // TODO: Start the game automatically, refresh f5
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
+  return(
+
+    <p>Turns: {turns}</p>
+  )
