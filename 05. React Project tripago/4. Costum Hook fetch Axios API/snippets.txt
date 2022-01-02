@@ -1,0 +1,35 @@
+_TripList.js
+
+
+ln.2    import { useAxios } from '../hooks/useAxios';
+
+ln.10   // TODO: Costum Fetch Hook API
+        const { data: trips } = useAxios(url);
+
+ln.22   {trips &&
+          trips.map((trip) => (
+            <li key={trip.id}>
+              <h3>{trip.title}</h3>
+              <p>{trip.price}</p>
+            </li>
+          ))}
+
+_useAxios.js
+
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+// TODO: Costum Fetch Hook API
+export const useAxios = (url) => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const results = await axios.get(url);
+      setData(results.data);
+    };
+    fetchData(); 
+  }, [url]);
+
+  return { data }; //FIXME: return data to an Object
+};
