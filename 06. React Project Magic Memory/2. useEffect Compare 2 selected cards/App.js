@@ -40,7 +40,7 @@ function App(props) {
    * @returns {Conditional_1} choiceOne.src === choiceTwo.src: true if the 2 cards match
    * @returns {Conditional_2} choiceOne.src !== choiceTwo.src: false if the 2 cards don't match
    * @description compare 2 selected cards
-   * @description mapping cards into newCard if the 2 cards match, set matched to true
+   * @description if the 2 cards match, set matched to true
    */
   useEffect(() => {
     if (choiceOne && choiceTwo) {
@@ -48,11 +48,11 @@ function App(props) {
         // FIXME: set matched to true
         const newCards = cards.map((card) => {
           if (card.src === choiceOne.src || card.src === choiceTwo.src) {
-            return { ...card, matched: true }; //FIXME:set matched to true
+            return { ...card, matched: true };
           }
           return card;
         });
-        setCards(newCards); //FIXME:set newCards into setCards()
+        setCards(newCards);
         resetChoices();
       } else {
         resetChoices();

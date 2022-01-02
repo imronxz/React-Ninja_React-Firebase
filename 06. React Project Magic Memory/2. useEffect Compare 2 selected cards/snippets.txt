@@ -1,3 +1,5 @@
+_App.js
+
 import './App.css';
 import { useState, useEffect } from 'react';
 import SingleCard from './components/SingleCard';
@@ -40,7 +42,7 @@ function App(props) {
    * @returns {Conditional_1} choiceOne.src === choiceTwo.src: true if the 2 cards match
    * @returns {Conditional_2} choiceOne.src !== choiceTwo.src: false if the 2 cards don't match
    * @description compare 2 selected cards
-   * @description mapping cards into newCard if the 2 cards match, set matched to true
+   * @description if the 2 cards match, set matched to true
    */
   useEffect(() => {
     if (choiceOne && choiceTwo) {
@@ -68,19 +70,3 @@ function App(props) {
     setChoiceTwo(null);
     setTurns(turns + 1);
   };
-
-  return (
-    <div className="App">
-      <h1>Magic Match 🧩</h1>
-      <button onClick={shuffleCards}>New Game 🎲</button>
-
-      <div className="card-grid">
-        {cards.map((card) => (
-          <SingleCard key={card.id} card={card} handleChoice={handleChoice} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export default App;
