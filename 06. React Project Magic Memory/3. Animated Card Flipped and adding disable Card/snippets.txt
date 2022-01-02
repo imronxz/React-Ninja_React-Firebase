@@ -1,0 +1,54 @@
+_App.js
+ln.21   const [disable, setDisable] = useState(false);
+
+ln.50   setDisable(true); //FIXME: set disable to true if make 2 choices
+ln.62   setTimeout(() => resetChoices(), 1000); //FIXME:setTimeout to resetChoices()
+    
+ln.74   setDisable(false);
+
+ln.84     SingleCard
+            key={card.id}
+            card={card}
+            handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
+            disable={disable}
+          />
+
+_SingleCard.js
+ln.2  export default function SingleCard({ card, handleChoice, flipped, disable }) {    
+ln.3  const handleClick = ()=>{
+        if (!disable) handleChoice(card); //FIXME:jika disable={true} return handleChoice(card)
+      }
+      
+ln.9-   <div className={flipped ? 'flipped' : ''}>
+          <img className="front" alt="card front" src={card.src} />
+          <img
+          className="back"
+          alt="card back"
+          src="/img/cover.png"
+ln.15     onClick={handleClick}
+        />
+
+_SingleCard.css
+
+ln.12 -   /*TODO: front of card - the picture */
+          .card .front {
+            transform: rotateY(90deg);
+            transition: all ease-in-out 0.2s;
+            position: absolute;
+          }
+          .flipped .front {
+            transform: rotateY(0deg);
+            transition-delay: 0.2s;
+
+            background-color: #1b1523;
+          }
+          /* front of back - the picture */
+          .card .back {
+            transition: all ease-in-out 0.2s;
+            transition-delay: 0.1s;
+          }
+          .flipped .back {
+            transform: rotateY(90deg);
+ln.31       transition-delay: 0s;
+          }
