@@ -1,3 +1,5 @@
+_App.js
+
 import './App.css';
 import { useState } from 'react';
 import SingleCard from './components/SingleCard';
@@ -39,6 +41,7 @@ function App(props) {
 
       <div className="card-grid">
         {cards.map((card) => (
+          //FIXME: Props card
           <SingleCard key={card.id} card={card} handleChoice={handleChoice} />
         ))}
       </div>
@@ -47,3 +50,63 @@ function App(props) {
 }
 
 export default App;
+
+_App.css
+
+.App {
+  max-width: 860px;
+  nargin: 40px auto;
+}
+button {
+  background: none;
+  border: 2px solid #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+button:hover {
+  background: #c23866;
+  color: #fff;
+}
+
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+
+
+_SingleCard.js
+
+import './SingleCard.css';        //FIXME: props from App.js
+export default function SingleCard({ card, handleChoice }) {
+  const handleClick = () => {
+    handleChoice(card);
+  };
+
+  return (
+    <div className="card">
+      <div>
+        <img className="front" alt="card front" src={card.src} />
+        <img className="back" alt="card back" src="/img/cover.png" onClick={handleClick} />
+      </div>
+    </div>
+  );
+}
+
+_SingleCard.css
+
+.card {
+  position: relative;
+}
+.card img {
+  width: 100%;
+  display: block;
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
