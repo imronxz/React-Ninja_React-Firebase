@@ -1,0 +1,40 @@
+* {
+  background: #2f2f4d;
+  font-family: 'lato', sans-serif;
+}
+.trip-list {
+  width: 480px;
+  margin: 60px auto;
+}
+.trip-list h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: #74bf9d;
+  text-decoration: underline;
+}
+.trip-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.trip-list li {
+  border: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  padding: 10px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+.trip-list li h3 {
+  color: #74bf9d;
+  font-size: 26px;
+}
+.trip-list li p {
+  color: #8c8c8c;
+  font-size: 18px;
+}
