@@ -1,0 +1,28 @@
+{
+  "trips": [
+    {
+      "title": "2 Hari di Malibu",
+      "price": "Rp. 199.000.000"
+    },
+    {
+      "title": "3 Hari di Bali",
+      "price": "Rp. 100.000.000"
+    },
+    {
+      "title": "4 Hari di Lombok",
+      "price": "Rp. 10.000.000"
+    },
+    {
+      "title": "5 Hari di Surabaya",
+      "price": "Rp. 7.000.000"
+    },
+    {
+      "title": "6 Hari di Jogja",
+      "price": "Rp. 9.000.000"
+    },
+    {
+      "title": "7 Hari di Singapore",
+      "price": "Rp. 11.000.000"
+    }
+  ]
+}
