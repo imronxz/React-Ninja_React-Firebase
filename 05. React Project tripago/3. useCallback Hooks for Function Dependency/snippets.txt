@@ -1,0 +1,14 @@
+_TripList.js
+
+
+ln.1 import { useState, useEffect, useCallback } from 'react';
+
+ln.11   // TODO: useCallback Hooks will return a memoized version of the callback that only changes if one of the inputs has changed.
+        const fetchTrips = useCallback(async () => {
+          const res = await axios.get(url);
+          setTrips(res.data);
+        }, [url]); //FIXME: useEffect Dependency Array on useCallback Hooks Function
+
+ln.17   useEffect(() => {
+          fetchTrips();
+        }, [fetchTrips]); //FIXME: useEffect Dependency Array on useEffect
