@@ -1,0 +1,23 @@
+_NewEventForm.js
+
+ln.7  const [location, setLocation] = useState('Indonesia');
+
+      resetForm = () =>{
+        setLocation('Indonesia');
+      }
+      
+      handleSubmit = ()=>{
+        location: location,
+      }
+
+      return(
+        <select onChange={(e) => setLocation(e.target.value)}>  
+            <option value="Bandung">Bandung</option>
+            <option value="Bali">Bali</option>
+            <option value="Jakarta">Jakarta</option>
+          </select>
+      )
+          
+_EventList.js
+
+ln.11 <h3>Asal : {event.location}</h3>
