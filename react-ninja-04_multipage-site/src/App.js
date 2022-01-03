@@ -13,7 +13,7 @@ function App() {
       <Fragment>
         <BrowserRouter>
           <nav>
-            <h1>My Articles</h1>
+            <h1>📚 My Blog </h1>
             <NavLink exact to="/">
               Home
             </NavLink>

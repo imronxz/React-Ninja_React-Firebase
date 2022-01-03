@@ -1,13 +1,11 @@
-* {
-  margin: 0;
-  padding: 1rem;
-  background: bisque;
-}
 .article .article-content {
   font-family: 'DM Sans', sans-serif;
   text-align: justify;
   box-shadow: 4px 2px 4px 5px rgba(0, 0, 0, 0.5);
-  background: #fff;
+  /* background: #fff; */
+  /* background: #209dd2; */
+  background: #73d6ac;
+  padding: 1.5rem;
 }
 
 .article h2 {
@@ -16,8 +14,7 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
-  color: rgb(255, 255, 255);
-  background: rgb(0, 0, 0);
+  background: #73d6ac;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -27,5 +24,5 @@
   text-align: justify;
   margin-bottom: 1rem;
   color: rgb(0, 0, 0);
-  background: #ffffff;
+  /* background: #ffffff; */
 }

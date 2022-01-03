@@ -13,8 +13,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h2>Home Page</h2>
-      <h2>Articles </h2>
+      <h2>Content Blog</h2>
       {isPending && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {articles &&

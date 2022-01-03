@@ -1,0 +1,13 @@
+_Article.js
+
+import { useParams, useHistory } from 'react-router-dom';
+  const history = useHistory();
+  
+useEffect(() => {
+    if (error) {
+      // redirect to root pages
+      setTimeout(() => {
+        history.push('/');
+      }, 2000);
+    }
+  }, [error, history]);
