@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 1rem;
+  background: bisque;
+}
+.article .article-content {
+  font-family: 'DM Sans', sans-serif;
+  text-align: justify;
+  box-shadow: 4px 2px 4px 5px rgba(0, 0, 0, 0.5);
+  background: #fff;
+}
+
+.article h2 {
+  font-family: 'Cascadia Code', monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.article p {
+  font-size: 1rem;
+  text-align: justify;
+  margin-bottom: 1rem;
+  color: rgb(0, 0, 0);
+  background: #ffffff;
+}

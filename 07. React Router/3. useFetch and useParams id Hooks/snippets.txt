@@ -1,0 +1,69 @@
+_App.js
+import Article from './pages/Article';
+<Route path="/articles/:id">
+              <Article />
+            </Route>
+
+_Article.js
+
+import { useParams } from 'react-router-dom';
+import { useFetch } from '../hooks/useFetch';
+
+// Styles
+import './Article.css';
+export default function Article() {
+  // const paramsArticleId = useParams().id;
+  const { id } = useParams();
+  const url = 'http://localhost:3001/articles/' + id;
+  const { data: article, isPending, error } = useFetch(url);
+
+  return (
+    <div className="article">
+      {/* <p>Articles pages { paramsArticleId}</p> */}
+      {/* <p>Articles pages - {id}</p> */}
+
+      {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
+      {article && (
+        <div className="article-content">
+          <h2>{article.title}</h2>
+          <p>By {article.author}</p>
+          <p>{article.body}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+_Home.js
+
+import { Link } from 'react-router-dom';
+import { useFetch } from '../hooks/useFetch';
+
+// Styles
+import './Home.css';
+
+export default function Home() {
+  const {
+    data: articles,
+    isPending,
+    error,
+  } = useFetch('http://localhost:3001/articles');
+
+  return (
+    <div className="home">
+      <h2>Home Page</h2>
+      <h2>Articles </h2>
+      {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
+      {articles &&
+        articles.map((article) => (
+          <div key={article.id} className="card">
+            <h3>{article.title}</h3>
+            <p>{article.author}</p>
+            <Link to={`/articles/${article.id}`}>Read More..</Link>
+          </div>
+        ))}
+    </div>
+  );
+}
