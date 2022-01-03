@@ -1,0 +1,7 @@
+_App.js
+
+import { Redirect } from 'react-router-dom';
+
+            <Route exact path="*">
+              <Redirect to="/" />
+            </Route>
