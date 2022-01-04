@@ -12,7 +12,7 @@ export default function RecipeList({ recipes }) {
           <p>{recipe.cookingTime} 🥘</p>
           {/* small snippets for methods*/}
           <div>{recipe.method.substring(0, 100)}...</div>
-          <Link to={`/recipe/${recipe.id}`}>Detail Resep 🔛</Link>
+          <Link to={`/recipe/${recipe.id}`}>Detail Resep</Link>
         </div>
       ))}
     </div>

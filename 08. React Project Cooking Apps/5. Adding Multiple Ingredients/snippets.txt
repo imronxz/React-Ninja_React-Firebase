@@ -1,0 +1,49 @@
+_Create.js
+
+import { useRef, useState } from 'react';
+export default function Create(){
+
+  const [newIngredient, setNewIngredient] = useState('');
+  const [ingredients, setIngredients] = useState([]);
+  const ingredientInput = useRef(null);
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    // TODO: validate
+
+    const ing = newIngredient.trim(); //FIXME: trim hapus spasi/teks kosong
+
+    // TODO check if ingredients input is empty and not duplicate, then
+    if (ing && !ingredients.includes(ing)) {
+      // FIXME:  return setIngredients to prevIngredients/ingredients array and newIngredient string
+      setIngredients((prevIngredients) => [...prevIngredients, ing]);
+    }
+    // TODO: clear input field to empty
+    setNewIngredient('');
+    // TODO: fokus mode pada inputan
+    ingredientInput.current.focus();
+  };
+  return(
+        <label>
+          <span>Recipe Ingredients:</span>
+          <div className="ingredients">
+            <input
+              type="text"
+              onChange={(e) => setNewIngredient(e.target.value)}
+              value={newIngredient}
+              ref={ingredientInput}
+              placeholder="Masukkan bahan"
+            />
+            <button onClick={handleAdd} className="btn">
+              add
+            </button>
+          </div>
+        </label>
+        <p>
+          Resep & Bahan:{' '}
+          {ingredients.map((ing) => (
+            <em key={ing}>{ing},</em>
+          ))}
+        </p>
+  )
+}
