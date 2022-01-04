@@ -17,7 +17,7 @@ export default function Search() {
 
   return (
     <div>
-      <h2 className="page-title">Resep Yang Ditemukan {query}</h2>
+      <h2 className="page-title">Hasil Pencarian {query}</h2>
       {error && <p>{error.message}</p>}
       {isPending && <p>Loading...</p>}
       {data && <RecipeList recipes={data} />}

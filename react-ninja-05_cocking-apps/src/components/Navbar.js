@@ -12,7 +12,7 @@ export default function Navbar() {
           <h1>Resep Rumahan</h1>
         </Link>
         <SearchBar />
-        <Link to="/create">Create</Link>
+        <Link to="/create">Tambah</Link>
         {/* <Link to="/search">Search</Link>
         <Link to="/recipe">Recipe</Link> */}
       </nav>

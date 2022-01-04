@@ -40,4 +40,7 @@ textarea {
 .error {
   text-align: center;
   margin: 40px auto;
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
 }

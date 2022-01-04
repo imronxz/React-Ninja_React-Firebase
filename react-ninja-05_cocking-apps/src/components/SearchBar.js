@@ -17,12 +17,12 @@ export default function SearchBar() {
   return (
     <div className="searchbar">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="search">Search:</label>
+        <label htmlFor="search">Cari:</label>
         <input
           type="text"
           id="search"
           onChange={(e) => setTerm(e.target.value)}
-          placeholder="cari resep"
+          placeholder="resep terbaikmu disini"
         />
       </form>
     </div>
