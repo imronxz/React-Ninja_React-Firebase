@@ -1,0 +1,61 @@
+_useFetch.js
+
+export const useFetch = (url, method = 'GET') => {
+  const [options, setOptions] = useState(null);
+
+  // TODO: Fetch POST data methods to application/json
+  const postData = (postData) => {
+    setOptions({
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData), //FIXME: return js object into string
+    });
+  };
+
+  useEffect(() => {
+    const fetchData = async (fetchOptions) => { //FIXME: params fetchOptions
+      setIsPending(true);
+
+      try {
+        const res = await fetch(url, {
+          ...fetchOptions,  //FIXME: 
+          signal: controller.signal,
+        });
+
+      // algorith over here
+      ..
+
+      //TODO: jika method benar 'GET' -> ambil data dari json-local server 
+      if (method === 'GET') {
+        fetchData();
+      }
+      //TODO: jika method benar 'POST' -> masukkan data dari Form ingredients Create.js ke json-local server
+      if (method === 'POST' && options) {
+        fetchData(options);
+      }
+  },[url, options, method]); //FIXME: add new dependency options and method
+
+  //TODO: props dari useFetch ke aplikasi
+  return { data, isPending, error, postData }; 
+}
+
+_Create.js
+
+import { useFetch } from '../../hooks/useFetch';
+
+  //TODO: fetching POST menggunakan useFetch
+  const { postData } = useFetch('http://localhost:3001/recipes','POST');
+
+  //TODO: handleSubmit form -> POST data ke lokal json-server 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: pass data to useFetch.js function postData=(postData)
+    postData({
+      title,
+      ingredients,
+      method,
+      cookingTime: cookingTime + ' menit',
+    });
+  };
