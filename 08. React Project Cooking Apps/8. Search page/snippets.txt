@@ -1,0 +1,64 @@
+_Search.js
+
+import { useLocation } from 'react-router-dom';
+import RecipeList from '../../components/RecipeList';
+import { useFetch } from '../../hooks/useFetch';
+
+// Styles
+import './Search.css';
+
+export default function Search() {
+  const querySearch = useLocation().search;
+  const queryParams = new URLSearchParams(querySearch);
+
+  const query = queryParams.get('q');
+  const url = 'http://localhost:3001/recipes?q=' + query; //FIXME: qParams with url
+  const { error, isPending, data } = useFetch(url); //FIXME: useFetch(url)
+
+  // if there is no data from search query, then show empty state
+
+  return (
+    <div>
+      <h2 className="page-title">Resep Yang Ditemukan {query}</h2>
+      {error && <p>{error.message}</p>}
+      {isPending && <p>Loading...</p>}
+      {data && <RecipeList recipes={data} />} //FIXME: props RecipeList.js (recipes)
+    </div>
+  );
+}
+
+------------------------------------------------------------------------------------------
+
+_SearchBar.js
+
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
+// Styles
+import './SearchBar.css';
+
+export default function SearchBar() {
+  const [term, setTerm] = useState('');
+  const history = useHistory();
+
+  //TODO: handleSubmit function with query parameters
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push(`/search?q=${term}`); FIXME: query parameters : ?q=${term}
+  };
+
+  return (
+    <div className="searchbar">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="search">Search:</label>
+        <input
+          type="text"
+          id="search"
+          onChange={(e) => setTerm(e.target.value)}
+          placeholder="cari resep"
+        />
+      </form>
+    </div>
+  );
+}
+
