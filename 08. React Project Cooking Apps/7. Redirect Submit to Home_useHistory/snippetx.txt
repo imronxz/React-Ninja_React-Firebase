@@ -1,0 +1,12 @@
+_Create.js
+
+import { useHistory } from 'react-router-dom';
+
+  const history = useHistory();
+  
+  // TODO: redirect the user when the data is successfully posted
+  useEffect(() => {
+    if (data) {
+      history.push('/');
+    }
+  }, [data, history]);

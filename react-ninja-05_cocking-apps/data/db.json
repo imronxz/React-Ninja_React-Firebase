@@ -38,37 +38,17 @@
       "cookingTime": "35 menit"
     },
     {
-      "title": "title1",
+      "title": "Resep History",
       "ingredients": [
-        "a",
-        "b",
-        "c"
+        "Cabe",
+        "Gula",
+        "Micin",
+        "Ketumbar",
+        "Air 20 ml"
       ],
-      "method": "goreng",
-      "cookingTime": "20 menit",
-      "id": "WFvuOT-"
-    },
-    {
-      "title": "title1",
-      "ingredients": [
-        "a",
-        "b",
-        "c"
-      ],
-      "method": "goreng",
-      "cookingTime": "20 menit",
-      "id": "7UwzjrO"
-    },
-    {
-      "title": "awdaw",
-      "ingredients": [
-        "wqeq2",
-        "awdaw",
-        "awd"
-      ],
-      "method": "asd",
-      "cookingTime": "22 menit",
-      "id": "Z1OX716"
+      "method": "Tumis",
+      "cookingTime": "6 menit",
+      "id": "P3QPq7g"
     }
   ]
 }
