@@ -82,6 +82,7 @@ export default function Create() {
             </button>
           </div>
         </label>
+
         <p>
           Resep & Bahan:{' '}
           {ingredients.map((ing) => (
@@ -92,6 +93,13 @@ export default function Create() {
         <label>
           <span>Recipe method:</span>
           <input
+            // {style="width:35%; height:100px"}
+            // style
+            style={{
+              width: '100%',
+              height: '70px',
+              position: 'relative',
+            }}
             type="text"
             onChange={(e) => setMethod(e.target.value)}
             value={method}

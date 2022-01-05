@@ -1,0 +1,58 @@
+_index.js
+
+import { ThemeProvider } from './context/ThemeContext';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
+  document.getElementById('root'),
+)
+
+--------------------------------------------------------------------------------------------------------
+_ThemeContext.js
+
+import { createContext } from 'react';
+
+export const ThemeContext = createContext();
+
+//TODO: ThemeProvider with props childer --> for index.js
+export function ThemeProvider({ children }) {
+  //FIXME: constume logic
+
+  return (
+    <ThemeContext.Provider value={{ color: 'blue' }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+--------------------------------------------------------------------------------------------------------
+_useTheme.js
+//TODO: Creating Costum Context Hook
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  if (context === undefined) {
+    throw new Error('useTheme must be used inside a ThemeProvider');
+  }
+
+  return context;
+};
+
+--------------------------------------------------------------------------------------------------------
+_Navbar.js
+//TODO: Using Costum Context hook
+import { useTheme } from '../hooks/useTheme';
+
+export default function Navbar(){
+  const { color } = useTheme();
+
+  return(
+    <div className="navbar" style={{ background: color }}>
+  )
+}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-//TODO: Using Costum Context hook
+// Costum Context Hook
 import { useTheme } from '../hooks/useTheme';
 
 // Styles
@@ -8,7 +8,7 @@ import './Navbar.css';
 import SearchBar from '../components/SearchBar';
 
 export default function Navbar() {
-  // FIXME: Add a context hook to access the theme
+  // TODO: Add a context hook to access the theme
   const { color } = useTheme();
 
   return (
