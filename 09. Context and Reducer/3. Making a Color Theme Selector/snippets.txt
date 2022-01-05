@@ -1,0 +1,96 @@
+_ThemeSelector.js
+
+import { useTheme } from '../hooks/useTheme';
+
+// Styles
+import './ThemeSelector.css';
+
+const themeColors = ['#58249c', '#249c6b', '#b70233'];
+
+export default function ThemeSelector() {
+  // TODO: Add a context hook to access the theme
+  const { changeColor } = useTheme();
+
+  return (
+    <div className="theme-selector">
+      <div className="theme-buttons">
+        {themeColors.map((color) => (
+          <div
+            key={color}
+            onClick={() => changeColor(color)}
+            style={{ background: color }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+---------------------------------------------------------------------------------------------------------
+_App.js
+
+import ThemeSelector from './components/ThemeSelector';
+
+function App(){
+  return(
+
+      <ThemeSelector />
+
+  )
+}
+---------------------------------------------------------------------------------------------------------
+_ThemeContext.js
+
+import { createContext, useReducer } from 'react';
+
+export const ThemeContext = createContext();
+
+// TODO: Dispatching Action: Proses pemanggilan sebuah instruksi yg di sediakan reducer
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case 'CHANGE_COLOR':
+      return {
+        ...state,
+        color: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+//TODO: ThemeProvider with props childer --> for index.js
+export function ThemeProvider({ children }) {
+  // * store: Tempat Penyimpanan data/value atau state
+  const [state, dispatch] = useReducer(themeReducer, {
+    color: '#58249c',
+  });
+
+  // * Reducer: Berfungsi mengubah value / state dari store
+  // * reducer: function yg akan mengubah state
+  const changeColor = (color) => {
+    dispatch({ type: 'CHANGE_COLOR', payload: color });
+  };
+
+  // * Context Management state Provider
+  return (
+    <ThemeContext.Provider value={{ ...state, changeColor }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+---------------------------------------------------------------------------------------------------------
+_useTheme.js
+
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+
+//TODO: Creating Costum Context Hook
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  if (context === undefined) {
+    throw new Error('useTheme must be used inside a ThemeProvider');
+  }
+
+  return context;
+};
