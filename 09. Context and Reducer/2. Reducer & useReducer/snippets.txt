@@ -1,0 +1,73 @@
+_ThemeContext.js
+
+import { createContext, useReducer } from 'react';
+
+export const ThemeContext = createContext();
+
+// FIXME: Dispatching Action: Proses pemanggilan sebuah instruksi yg di sediakan reducer
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case 'CHANGE_COLOR':
+      return {
+        ...state,
+        color: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+//TODO: ThemeProvider with props childer --> for index.js
+export function ThemeProvider({ children }) {
+  // FIXME: Tempat Penyimpanan data/value atau state
+  const [state, dispatch] = useReducer(themeReducer, {
+    color: 'blue',
+  });
+
+  // * Reducer: Berfungsi mengubah value / state dari store
+  // FIXME: function yg akan mengubah state
+  const changeColor = (color) => {
+    dispatch({ type: 'CHANGE_COLOR', payload: color });
+  };
+
+  // FIXME: Context Management state Provider
+  return (
+    //HACK: Passing props state and changeColor
+    <ThemeContext.Provider value={{ ...state, changeColor }}> 
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+--------------------------------------------------------------------------------------------------------
+_useTheme.js
+
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+
+//TODO: Creating Costum Context Hook
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  if (context === undefined) {
+    throw new Error('useTheme must be used inside a ThemeProvider');
+  }
+
+  return context; //FIXME: return as an object
+};
+
+--------------------------------------------------------------------------------------------------------
+_Navbar.js
+
+import { useTheme } from '../hooks/useTheme';
+
+export default function Navbar() {
+
+  const { color, changeColor } = useTheme(); //HACK: useTheme Costume hook
+
+  return(
+    <div className="navbar" style={{ background: color }}> //TODO: props obj useTheme()
+      <nav onClick={() => changeColor('pink')}> //TODO: props obj useTheme()
+      </nav>
+    </div>
+  )
+}
