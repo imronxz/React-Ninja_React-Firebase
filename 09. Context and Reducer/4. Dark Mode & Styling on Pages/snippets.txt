@@ -1,0 +1,80 @@
+_ThemeContext.js
+// TODO: Dispatching Action
+case 'CHANGE_MODE':
+      return {
+        ...state,
+        mode: action.payload,
+      };
+
+// TODO: global state mode
+const [state, dispatch] = useReducer(themeReducer, {
+    color: '#58249c',
+    mode: 'dark',
+  });
+// TODO: reducer: function yg akan mengubah state
+const changeMode = (mode) => {
+    dispatch({ type: 'CHANGE_MODE', payload: mode });
+  };
+    //TODO: passing changeMode
+    <ThemeContext.Provider value={{ ...state, changeColor, changeMode }}>
+
+--------------------------------------------------------------------------------------------------------
+_ThemeSelector.js
+
+import modeIcon from '../assets/mode-icon.svg';
+// Styles
+import './ThemeSelector.css';
+
+export default function ThemeSelector() {
+  // TODO: use changeMode and mode: 'dark'
+  const { changeColor, changeMode, mode } = useTheme();
+
+  //TODO: function to change the theme color
+  const toggleMode = () => {
+    changeMode(mode === 'dark' ? 'light' : 'dark');
+  };
+
+    <div className="theme-selector">
+      <div className="mode-toggle">
+        <img
+          onClick={toggleMode}
+          src={modeIcon}
+          alt="dark/light toggle icon"
+          style={{
+            filter: mode === 'dark' ? 'invert(100%)' : 'invert(0%)',
+          }}
+        />
+      </div>
+}
+
+@ThemeSelector.css
+
+.mode-toggle {
+  margin-right: auto;
+}
+.mode-toggle img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+--------------------------------------------------------------------------------------------------------
+_App.js
+
+// Costum Hook
+import { useTheme } from './hooks/useTheme';
+
+// Styles
+import './App.css';
+
+function App(){
+  //TODO: accept obj {mode} from costum Hook useTheme()
+  const { mode } = useTheme();
+
+    <div className={`App ${mode}`}> 
+}
+
+@App.css
+
+.App.dark {
+  background: #333;
+}
