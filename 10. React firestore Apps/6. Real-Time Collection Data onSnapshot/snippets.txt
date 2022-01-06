@@ -1,17 +1,8 @@
-import { projectFirestore } from '../../firebase/config';
+_Home.js
 
-import RecipeList from '../../components/RecipeList';
-
-import './Home.css';
-import { useEffect, useState } from 'react';
-export default function Home() {
   const [data, setData] = useState(null);
-  const [isPending, setIsPending] = useState(false);
-  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    setIsPending(true);
-    /* Real-Time Collection Data
+    /*TODO: Real-Time Collection Data
     onSnapshot() is a method that is called whenever the data in the collection changes.
     */
     const unsub = projectFirestore.collection('recipes').onSnapshot(
@@ -37,12 +28,13 @@ export default function Home() {
     return () => unsub();
   }, []);
 
-  return (
-    <div className="home">
-      {/* FIXME: index.css styling (.error and .pending)*/}
-      {error && <div className="error">{error}</div>}
-      {isPending && <div className="pending">{isPending}</div>}
-      {data && <RecipeList recipes={data} />}
-    </div>
-  );
-}
+--------------------------------------------------------------------------------------------------------
+_RecipeList.js
+
+if (recipes.length === 0) {
+    return (
+      <div className="error">
+        <h1>Tidak ada resep yang ditemukan 🚫 </h1>
+      </div>
+    );
+  }

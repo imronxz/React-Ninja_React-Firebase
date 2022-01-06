@@ -13,13 +13,13 @@ import deleteIcon from '../assets/delete-icon.svg';
 export default function RecipeList({ recipes }) {
   const { mode } = useTheme();
 
-  /* if (recipes.length === 0) {
+  if (recipes.length === 0) {
     return (
       <div className="error">
         <h1>Tidak ada resep yang ditemukan 🚫 </h1>
       </div>
     );
-  } */
+  }
 
   const handleClick = (id) => {
     projectFirestore.collection('recipes').doc(id).delete();
