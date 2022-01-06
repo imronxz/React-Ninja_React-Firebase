@@ -1,0 +1,66 @@
+_Navbar.js
+
+import { Link } from 'react-router-dom';
+
+// styles module
+import styles from './Navbar.module.css';
+
+export default function Navbar() {
+  return (
+    <nav className={styles.navbar}>
+      <ul>
+        <li className={styles.title}>Uang Saya</li>
+        <li>
+          <Link to="/login">Masuk</Link>
+        </li>
+        <li>
+          <Link to="/signup">Daftar</Link>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+_Navbar.module.css
+/* navbar styles */
+
+.navbar {
+  width: 100%;
+  background: #effaf0;
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+.navbar ul {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  max-width: 960px;
+}
+.title {
+  margin-right: auto;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+}
+.navbar button,
+.navbar a {
+  margin-left: 16px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #333;
+}
+------------------------------------------------------------------------------------------
+_App.js
+
+// Components
+import Navbar from './components/Navbar';
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Navbar /> //FIXME: Call Navbar comps
+      <Switch/>
+        <Route/>
+    </BrowserRouter>
+}
