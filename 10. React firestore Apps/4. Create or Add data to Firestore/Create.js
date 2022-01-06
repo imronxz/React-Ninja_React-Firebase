@@ -20,6 +20,7 @@ export default function Create() {
 
   const { mode } = useTheme();
 
+  // const { postData, data } = useFetch('http://localhost:3001/recipes', 'POST');
   const handleSubmit = async (e) => {
     e.preventDefault();
     // TODO: pass data to useFetch.js function postData=(postData)

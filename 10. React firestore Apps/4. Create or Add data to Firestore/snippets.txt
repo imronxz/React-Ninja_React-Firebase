@@ -1,0 +1,21 @@
+_Create.js
+
+import { projectFirestore } from '../../firebase/config';
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const doc = {
+      title,
+      ingredients,
+      method,
+      cookingTime: cookingTime + ' menit',
+    };
+    //FIXME: added dokumen ke collection('recipes') dari firebase/firestore {projectFirestore}
+    try { 
+      await projectFirestore.collection('recipes').add(doc);
+      // TODO: redirect the user when the data is successfully posted
+      history.push('/');
+    } catch (error) {
+      console.error(error);
+    }
+  };
