@@ -1,0 +1,45 @@
+_config.js
+
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyDXn6gMTf952TzAESQ_2engBNlcokGDiCM',
+  authDomain: 'cooking-ninja-s.firebaseapp.com',
+  projectId: 'cooking-ninja-s',
+  storageBucket: 'cooking-ninja-s.appspot.com',
+  messagingSenderId: '103489556300',
+  appId: '1:103489556300:web:8a8fcea31f6d2d790d49e9',
+};
+
+// init firebase
+firebase.initializeApp(firebaseConfig);
+
+// init services
+const projectFirestore = firebase.firestore();
+
+export { projectFirestore };
+
+--------------------------------------------------------------------------------------------------------
+_Home.js
+
+import { projectFirestore } from '../../firebase/config';
+import { useEffect, useState } from 'react';
+
+useEffect(() => {
+    setIsPending(true);
+    //TODO: fetching data from firebase/firestore 
+    projectFirestore
+      .collection('recipes').get().then((snapshot) => { //FIXME: collection induk dari -> data('recipes') -> dokumen
+        const recipes = snapshot.docs.map((doc) => ({ //FIXME: DataSnapshot is passed to the event callbacks you attach
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setData(recipes);
+        setIsPending(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setIsPending(false);
+      });
+  }, []);
