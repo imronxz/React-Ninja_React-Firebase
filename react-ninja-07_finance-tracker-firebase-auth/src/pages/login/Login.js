@@ -34,7 +34,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <button className="btn">login</button>
+      <button className="btn">MASUK</button>
     </form>
   );
 }
