@@ -1,0 +1,19 @@
+_RecipeList.js
+
+// firebase/firestore
+import { projectFirestore } from '../firebase/config';
+// icon
+import deleteIcon from '../assets/delete-icon.svg';
+  // TODO: handleClick delete -> doc(id) -> collection('recipes')
+  const handleClick = (id) => {
+    projectFirestore.collection('recipes').doc(id).delete();
+  };
+
+        return(
+          <img
+            src={deleteIcon}
+            alt="delete-icon"
+            className="delete"
+            onClick={() => handleClick(recipe.id)} //FIXME: handleClick taking (recipe.id)
+          />
+        )
