@@ -15,7 +15,7 @@ export default function Navbar() {
     <div className="navbar" style={{ background: color }}>
       <nav>
         <Link to="/" className="brand">
-          <h1>Resep Nusantara</h1>
+          <h1>Resep Firebase</h1>
         </Link>
         <SearchBar />
         <Link to="/create">Tambah</Link>

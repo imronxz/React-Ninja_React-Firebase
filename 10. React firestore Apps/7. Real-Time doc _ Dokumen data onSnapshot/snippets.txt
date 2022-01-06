@@ -1,0 +1,31 @@
+_Recipe.js
+
+  useEffect(() => {
+    setIsPending(true);
+    // TODO: onSnapshot doc firebase/firestore
+    const unsub = projectFirestore
+      .collection('recipes')
+      .doc(id)
+      .onSnapshot((doc) => {
+        if (doc.exists) {
+          const recipe = doc.data();
+          setDetailRecipe(recipe);
+          setIsPending(false);
+        } else {
+          setIsPending(true);
+          setError('No such recipe exists');
+        }
+      });
+    return () => unsub(); //FIXME: return unsub whenever document is change
+  }, [id]);
+
+  /* TODO: update
+  Updates dokumen firebase/firestore -> update({ title: 'any text'})
+  */
+  const handleClick = () => {
+    projectFirestore.collection('recipes').doc(id).update({
+      title: 'REAL-TIME DOCUMENT UPDATED',
+    });
+  };
+  
+          <button onClick={handleClick}>Update Resep</button>
