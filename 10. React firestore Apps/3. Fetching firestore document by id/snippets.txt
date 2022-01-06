@@ -1,0 +1,25 @@
+_Recipe.js
+
+import { useEffect, useState } from 'react';
+import { projectFirestore } from '../../firebase/config';
+
+  const [detailRecipe, setDetailRecipe] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setIsPending(true);
+    // TODO: collection('recipes) -> doc(id) -> get()
+    projectFirestore
+      .collection('recipes').doc(id).get().then((doc) => {
+        //FIXME: jika doc.exists ada return setDetailRecipe(doc.data()) 
+        if (doc.exists) {
+          const recipe = doc.data();
+          setDetailRecipe(recipe);
+          setIsPending(false);
+        } else {
+          setIsPending(true);
+          setError('No such recipe exists');
+        }
+      });
+  }, [id]);
