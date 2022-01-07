@@ -1,0 +1,39 @@
+@Cleanup fn whenever mount is in action
+
+_useLogout.js
+
+
+import { useEffect, useState } from 'react';
+
+  const [isCancelled, setIsCancelled] = useState(false);
+
+
+      // update state
+      if (!isCancelled) {
+        setIsPending(false);
+        setError(null);
+      }
+
+useEffect(() => {
+    return () => setIsCancelled(true);
+  }, []);
+--------------------------------------------------------------------------------------------------------
+
+_useSignup.js
+
+import { useState, useEffect } from 'react';
+
+  const [isCancelled, setIsCancelled] = useState(false);
+
+      //TODO: update state
+      if (!isCancelled) {
+        setIsPending(false);
+        setError(null);
+      }
+    } catch (error) {
+      if (!isCancelled) {
+        console.log(error.message);
+        setError(error.message);
+        setIsPending(false);
+      }
+    }
