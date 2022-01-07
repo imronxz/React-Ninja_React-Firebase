@@ -1,15 +1,4 @@
-// React Hook
-import { useReducer, useEffect, useState } from 'react';
-// Firebase/Firestore
-import { projectFirestore } from '../firebase/config';
-
-// TODO: Global Store initialstate
-let initialState = {
-  document: null,
-  isPending: false,
-  error: null,
-  success: null,
-};
+_useFirestore.js
 
 // TODO: Dispatching Action manually
 const firestoreReducer = (state, action) => {
@@ -41,25 +30,7 @@ const firestoreReducer = (state, action) => {
       return state;
   }
 };
-
-/**TODO: Define useFirestore -> (collection)
- * @response: data from firestore
- * @dispatch: dispatch action
- * @fireStoreReducer: reducer
- * @initialState: initial state
- * @ref: reference to firestore collection
- *  addDocument: add (doc) to firestore collection
- *  deleteDocument: delete (id) from firestore collection
- * @return: an Object with the following properties addDocument, deleteDocument, response
- */
-export const useFirestore = (collection) => {
-  const [response, dispatch] = useReducer(firestoreReducer, initialState);
-  const [isCancelled, setIsCancelled] = useState(false);
-
-  // * Collection ref
-  const ref = projectFirestore.collection(collection);
-
-  //! only dispatch is not cancelled
+  //TODO:! only dispatch is not cancelled
   const dispatchIfNotCancelled = (action) => {
     if (!isCancelled) {
       dispatch(action);
@@ -81,14 +52,3 @@ export const useFirestore = (collection) => {
       });
     }
   };
-
-  // * Delete document
-  const deleteDocument = async (id) => {};
-
-  // TODO: useEffect setIsCancelled to true
-  useEffect(() => {
-    return () => setIsCancelled(true);
-  }, []);
-
-  return { addDocument, deleteDocument, response };
-};
