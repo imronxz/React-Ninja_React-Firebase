@@ -1,0 +1,65 @@
+_Navbar.js
+
+import { useAuthContext } from '../hooks/useAuthContext';
+
+export default function Navbar() {
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
+  return(
+        {/*TODO: jika tidak ada user login return jsx... */}
+        {!user && (
+          <>
+            <li>
+              <Link to="/login">Masuk</Link>
+            </li>
+            <li>
+              <Link to="/signup">Daftar</Link>
+            </li>
+          </>
+        )}
+
+        {/*TODO: jika ada user login return jsx... */}
+        {user && (
+          <>
+            <li>Hello, {user.displayName}</li> //FIXME: Display userName
+            <li>
+              <button className="btn" onClick={logout}>
+                Keluar
+              </button>
+            </li>
+          </>
+        )}
+      </ul>
+  )
+}
+--------------------------------------------------------------------------------------------------------
+_useSignup.js
+
+
+  const signup = async (email, password, displayName) => {
+      await res.user.updateProfile({ displayName });
+  }
+
+--------------------------------------------------------------------------------------------------------
+_Signup.js
+
+export default function Signup() {
+  const [displayName, setDisplayName] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signup(email, password, displayName);
+  };
+
+  return(
+      <label>
+        <span>Username:</span>
+        <input
+          type="text"
+          placeholder="ID User"
+          onChange={(e) => setDisplayName(e.target.value)}
+          value={displayName}
+        />
+      </label>
+  )
+}
