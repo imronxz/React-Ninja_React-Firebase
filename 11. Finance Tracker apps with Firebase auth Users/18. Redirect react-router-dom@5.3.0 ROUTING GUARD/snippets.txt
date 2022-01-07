@@ -1,0 +1,23 @@
+_App.js
+
+// react-router
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
+export default function App() {
+  const { authIsReady, user } = useAuthContext();
+
+  return(
+      <Route exact path="/">
+        {!user && <Redirect to="/login" />} //FIXME: !user redirect to login page
+        {user && <Home />}
+      </Route>
+      <Route path="/login">
+        {user && <Redirect to="/" />} //FIXME: user redirect to home page
+        {!user && <Login />}
+      </Route>
+      <Route path="/signup">
+        {user && <Redirect to="/" />} //FIXME: user redirect to home page
+        {!user && <Signup />}
+      </Route>
+  )
+}
