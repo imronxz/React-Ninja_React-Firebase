@@ -1,0 +1,31 @@
+
+_Home.js
+
+import { useCollection } from '../../hooks/useCollection';
+
+  const { user } = useAuthContext();
+  // TODO: query Arrays
+  const { documents, error } = useCollection('transaksi', [
+    'uid',
+    '==',
+    user.uid,
+  ]);
+--------------------------------------------------------------------------------------------------------
+_useCollection.js
+
+import { useEffect, useRef, useState } from 'react';
+
+//TODO: _query : argument
+export const useCollection = (collection, _query) => {
+
+  /* TODO: useRef: break infinite loop query arrays as dependency
+   if we don't use a ref --> infinite loop in useEffect
+  _query is an array and is "different" on every function call
+  */
+  const query = useRef(_query).current;
+    if (query) {
+      ref = ref.where(...query);
+    }
+
+
+  }, [collection, query]);
