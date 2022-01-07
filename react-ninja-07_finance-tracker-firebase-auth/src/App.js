@@ -13,7 +13,7 @@ import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 
 export default function App() {
-  const authIsReady = useAuthContext();
+  const { authIsReady } = useAuthContext();
 
   return (
     <div className="App">

@@ -2,7 +2,7 @@ _App.js
 
 //TODO:  Costum Hooks
 import { useAuthContext } from './hooks/useAuthContext';
-  const authIsReady = useAuthContext();
+  const {authIsReady} = useAuthContext();
 
   return(
       {authIsReady && (
