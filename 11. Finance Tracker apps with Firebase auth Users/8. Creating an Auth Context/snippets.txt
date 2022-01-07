@@ -1,0 +1,48 @@
+_AuthContext.js
+//TODO: context reducer npm
+import { createContext, useReducer } from 'react';
+
+// TODO: export createContext() as AuthContext
+export const AuthContext = createContext();
+
+//FIXME: dispatch action
+export const authReducer = (state, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
+//TODO: export Provider Store with children obj 
+export const AuthContextProvider = ({ children }) => {
+  
+  const [state, dispatch] = useReducer(authReducer, {
+    user: null,
+  });
+
+  dispatch({ type: 'LOGIN' });
+
+  return (
+    <AuthContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+--------------------------------------------------------------------------------------------------------
+
+useAuthContext.js
+
+import { AuthContext } from './context/AuthContext';
+import { useContext } from 'react';
+
+export const useAuthCOntexst = () => {
+  const context = useContext(AuthContext);
+  // TODO: jika tidak ada context, maka error
+  if (!context) {
+    throw new Error(
+      'useAuthContext must be used within an AuthContextProvider',
+    );
+  }
+  return context;
+};
