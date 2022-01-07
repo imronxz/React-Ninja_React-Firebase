@@ -1,0 +1,21 @@
+_Login.js
+
+//TODO: Costum Hook
+import { useLogin } from '../../hooks/useLogin';
+
+  const { login, error, isPending } = useLogin();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(email, password);
+  };
+  
+    return(
+      {!isPending && <button className="btn">MASUK</button>}
+      {isPending && (
+        <button className="btn" disabled>
+          loading
+        </button>
+      )}
+      {error && <p>{error}</p>}
+    )

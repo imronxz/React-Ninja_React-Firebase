@@ -49,7 +49,7 @@ export default function Signup() {
       {/* jika isPending = false tampilkan DAFTAR btn,
       jika isPending = true tampilkan loading btn*/}
       {!isPending && <button className="btn">DAFTAR</button>}
-      {/* disable: button ketika mengirim data ke firebase */}
+      {/* disabled: button ketika mengirim data ke firebase */}
       {isPending && (
         <button className="btn" disabled>
           loading
