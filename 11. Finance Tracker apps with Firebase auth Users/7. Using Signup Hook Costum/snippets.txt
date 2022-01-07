@@ -1,0 +1,25 @@
+_Signup.js
+
+import { useSignup } from '../../hooks/useSignup';
+
+export default function Signup() {
+  const { signup, isPending, error } = useSignup(); //TODO: using useSignup hook obj
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        signup(email, password, user);
+      };
+
+    return(
+      //TODO: jika isPending = false tampilkan DAFTAR btn, jika isPending = true tampilkan loading btn
+      
+      {!isPending && <button className="btn">DAFTAR</button>}
+      //TODO: disable: disable button ketika mengirim data ke firebase */}
+      {isPending && (
+        <button className="btn" disabled>
+          loading
+        </button>
+      )}
+      {error && <p>{error}</p>}
+    )
+}

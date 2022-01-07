@@ -18,7 +18,7 @@ export function useSignup() {
       console.log(res.user);
 
       // if there is no res.user, then there is an error
-      if (!res.user) {
+      if (!res) {
         throw new Error('Pendaftaran gagal');
       }
 
