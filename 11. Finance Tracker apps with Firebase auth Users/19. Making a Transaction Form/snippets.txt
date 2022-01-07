@@ -1,0 +1,120 @@
+_Home.js
+
+import styles from './Home.module.css';
+
+// Komponen
+import TransaksiForm from './TransaksiForm';
+
+export default function home() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.content}>Transaction List</div>
+      <div className={styles.sidebar}>
+        <TransaksiForm />  //FIXME: TransaksiForm Komponen
+      </div>
+    </div>
+  );
+}
+
+_Home.module.css
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  max-width: 960px;
+  margin: 60px auto;
+}
+.content {
+  padding-right: 30px;
+}
+.sidebar {
+  padding-left: 30px;
+}
+.sidebar form {
+  padding: 20px;
+  background: #1f9751;
+  border-radius: 10px;
+}
+.sidebar input,
+.sidebar select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 4px;
+  color: #555;
+  font-size: 1em;
+}
+.sidebar label {
+  margin: 0 auto 20px;
+  display: block;
+  color: #fff;
+}
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+.sidebar h3 {
+  color: #1f9751;
+  margin-bottom: 20px;
+}
+.sidebar aside {
+  margin-top: 40px;
+  color: #555;
+}
+.sidebar aside li {
+  margin: 10px;
+}
+
+
+--------------------------------------------------------------------------------------------------------
+_TransaksiForm.js
+
+import { useState } from 'react';
+
+export default function TransaksiForm() {
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ name, amount });
+  };
+
+  return (
+    <>
+      <h3>Form Transaksi</h3>
+      <form onSubmit={handleSubmit}>
+        <label>
+          <span>Nama Transaksi:</span>
+          <input
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            placeholder="Nama Transaksi"
+            required
+          />
+        </label>
+        <label>
+          <span>Jumlah Pengeluaran (Rp.):</span>
+          <input
+            type="number"
+            onChange={(e) => setAmount(e.target.value)}
+            value={amount}
+            placeholder="Jumlah Transaksi"
+            required
+          />
+        </label>
+        <button>Tambah Transaksi</button>
+      </form>
+    </>
+  );
+}
