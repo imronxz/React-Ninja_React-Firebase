@@ -1,7 +1,7 @@
 // React Hook
 import { useReducer, useEffect, useState } from 'react';
 // Firebase/Firestore
-import { projectFirestore } from '../firebase/config';
+import { projectFirestore, timestamp } from '../firebase/config';
 
 // TODO: Global Store initialstate
 let initialState = {
@@ -70,9 +70,10 @@ export const useFirestore = (collection) => {
   const addDocument = async (doc) => {
     dispatch({ type: 'IS_PENDING' });
     try {
+      const addedDocumnet = await ref.add(doc);
       dispatchIfNotCancelled({
         type: 'ADDED_DOCUMENT',
-        payload: addDocument, //FIXME: getback to addDocument
+        payload: addedDocumnet, //FIXME: getback to addedDocument
       });
     } catch (error) {
       dispatchIfNotCancelled({
