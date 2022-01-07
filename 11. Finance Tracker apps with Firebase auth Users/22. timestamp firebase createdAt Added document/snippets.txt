@@ -1,0 +1,19 @@
+_firebase/config.js
+
+// timestamp
+const timestamp = firebase.firestore.Timestamp;
+
+export { projectFirestore, projectAuth, timestamp };
+
+---------------------------------------------------------------------------------------------------------------------
+_useFirestore.js
+
+
+import { projectFirestore, timestamp } from '../firebase/config';
+
+    const createdAt = timestamp.fromDate(new Date());
+    const addedDocumnet = await ref.add({
+      // spread operator TransaksiForm.js | name and amount
+      ...doc,
+      createdAt,
+    });
