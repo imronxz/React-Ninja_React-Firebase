@@ -1,0 +1,32 @@
+_Home.js
+  
+  const { documents, error } = useCollection(
+    'transaksi',
+    ['uid', '==', user.uid],
+    ['createdAt', 'desc'],
+  );
+--------------------------------------------------------------------------------------------------------
+_useCollection.js
+
+export const useCollection = (collection, _query, _orderBy) => {
+  const orderBy = useRef(_orderBy).current;
+
+  useEffect(() => {
+    let ref = projectFirestore.collection(collection);
+
+    /** TODO: query where
+     * Creates and returns a new Query with the additional filter that documents
+     * must contain the specified field and the value should satisfy the
+     * value should constraint provided.
+     */
+    if (query) {
+      ref = ref.where(...query);
+    }
+
+    /** TODO: query orderBy
+     * Creates and returns a new Query that's additionally sorted by the specified field,
+     * optionally in descending order instead of ascending.
+     */
+    if (orderBy) {
+      ref = ref.orderBy(...orderBy);
+    }
