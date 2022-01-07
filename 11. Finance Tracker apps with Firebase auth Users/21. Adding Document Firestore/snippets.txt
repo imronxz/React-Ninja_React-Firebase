@@ -39,9 +39,9 @@ const firestoreReducer = (state, action) => {
 
   // * Add document get from Object TransaksiForm.js
   const addDocument = async (doc) => {
-    const addedDocumnet = await ref.add(doc);
     dispatch({ type: 'IS_PENDING' });
     try {
+      const addedDocumnet = await ref.add(doc);
       dispatchIfNotCancelled({
         type: 'ADDED_DOCUMENT',
         payload: addedDocumnet, //FIXME: getback to addedDocumnet
