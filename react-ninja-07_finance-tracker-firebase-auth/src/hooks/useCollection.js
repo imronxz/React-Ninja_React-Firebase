@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { projectFirestore } from '../firebase/config';
 
 export const useCollection = (collection) => {
-  const [document, setDocument] = useState(null);
+  const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const useCollection = (collection) => {
      * onSnapshot: real-time listener
      * snapshot: data from firestore
      * docs: data from firestore
-     * @setDocument: setDocument
+     * @setDocuments: setDocuments
      * @setError: setError
      */
     const unsubscribe = ref.onSnapshot(
@@ -25,7 +25,7 @@ export const useCollection = (collection) => {
         });
 
         // * update state
-        setDocument(results);
+        setDocuments(results);
         setError(null);
       },
       (err) => {
@@ -38,5 +38,5 @@ export const useCollection = (collection) => {
   }, [collection]);
 
   // return obj document and error
-  return { document, error };
+  return { documents, error };
 };
