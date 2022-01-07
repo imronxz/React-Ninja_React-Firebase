@@ -1,0 +1,37 @@
+_useFirestore.js
+
+  case 'DELETED_DOCUMENT':
+    return {
+      /* no need spread state, bcs we update manually initialState */
+      document: null,
+      isPending: false,
+      error: null,
+      success: true,
+  };
+
+
+  // * Delete document
+  const deleteDocument = async (id) => {
+    dispatch({ type: 'IS_PENDING' });
+    try {
+      await ref.doc(id).delete();
+      dispatchIfNotCancelled({
+        type: 'DELETED_DOCUMENT',
+      });
+    } catch (err) {
+      dispatchIfNotCancelled({
+        type: 'ERROR',
+        payload: err.message,
+      });
+    }
+  };
+
+
+----------------------------------------------------------------------------------------------
+_Home.js
+
+import { useFirestore } from '../../hooks/useFirestore';
+
+  const { deleteDocument } = useFirestore('transaksi');
+
+        <button onClick={() => deleteDocument(transaksi.id)}>x</button>
