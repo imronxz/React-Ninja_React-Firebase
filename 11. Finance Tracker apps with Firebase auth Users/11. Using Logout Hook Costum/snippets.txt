@@ -1,0 +1,14 @@
+_Navbar.js
+
+//TODO: import useLogout
+import { useLogout } from '../hooks/useLogout';
+
+  //TODO: using logout obj from useLogout Kostum Hook
+  const { logout } = useLogout();
+
+  //TODO: saat diklik picu logout fn yg berasal dari useLogout Kostum State
+        <li>
+          <button className="btn" onClick={logout}>
+            Keluar
+          </button>
+        </li>

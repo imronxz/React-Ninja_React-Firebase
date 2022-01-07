@@ -2,7 +2,7 @@ import { createContext, useReducer } from 'react';
 
 export const AuthContext = createContext();
 
-/*  TODO: Define reducer ->
+/**   TODO: Define reducer ->
  * Dispatching action function
  * Case LOGIN return user: action.payload
  * Case LOGOUT return user: null
@@ -18,7 +18,7 @@ export const authReducer = (state, action) => {
   }
 };
 
-/*  TODO: Define AuthContextProvider ->
+/**  TODO: Define AuthContextProvider ->
  * define global state store
  * React.Context.Provider { { children } }
  */
