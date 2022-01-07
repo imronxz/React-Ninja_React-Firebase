@@ -18,7 +18,7 @@ export default function TransaksiForm({ uid }) {
     });
   };
 
-  // * Reset the form fields when the user submits success
+  // * Reset the form fields
   useEffect(() => {
     if (response.success) {
       setName('');

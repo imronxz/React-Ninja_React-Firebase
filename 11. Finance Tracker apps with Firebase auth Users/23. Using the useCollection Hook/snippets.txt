@@ -1,0 +1,45 @@
+_TransaksiForm.js
+
+import { useEffect, useState } from 'react';
+//TODO: costum hooks
+import { useFirestore } from '../../hooks/useFirestore';
+
+//TODO:  Received {uid} props from Home.js
+export default function TransaksiForm({ uid }) {
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState('');
+
+  //TODO:  creating new transaksi collection in useFirestore
+  const { addDocument, response } = useFirestore('transaksi');
+
+  // TODO: onSubmit addedDocumnet following an obj {uid, name, amout}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addDocument({
+      uid,
+      name,
+      amount,
+    });
+  };
+
+  //FIXME: * Reset the form fields when the user submits success
+  useEffect(() => {
+    if (response.success) {
+      setName('');
+      setAmount('');
+    }
+  }, [response.success]);
+--------------------------------------------------------------------------------------------------------
+_Home.js
+
+//TODO: Context useAuthContext
+import { useAuthContext } from '../../hooks/useAuthContext';
+
+export default function Home() {
+  const { user } = useAuthContext();
+
+    return(
+      {/* FIXME: uid props harus dari user yang login*/}
+        <TransaksiForm uid={user.uid} />
+    )
+}

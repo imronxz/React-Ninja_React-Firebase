@@ -72,7 +72,7 @@ export const useFirestore = (collection) => {
     try {
       const createdAt = timestamp.fromDate(new Date());
       const addedDocumnet = await ref.add({
-        // spread operator TransaksiForm.js | name and amount
+        // spread operator TransaksiForm.js | uid, name and amount
         ...doc,
         createdAt,
       });
