@@ -15,21 +15,21 @@ export function useSignup() {
     setIsPending(true);
 
     try {
-      //TODO: daftar user
+      // daftar user
       const res = await projectAuth.createUserWithEmailAndPassword(
         email,
         password,
       );
 
-      //TODO: if there is no res.user, then there is an error
+      // if there is no res.user, then there is an error
       if (!res) {
         throw new Error('Pendaftaran gagal');
       }
 
-      //TODO: add displayName to user
+      // add displayName to user
       await res.user.updateProfile({ username });
 
-      //TODO: Dispatch login action
+      // Dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user });
 
       setIsPending(false);

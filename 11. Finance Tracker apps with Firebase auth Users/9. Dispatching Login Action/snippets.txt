@@ -1,7 +1,9 @@
+_AuthContext.js
 import { createContext, useReducer } from 'react';
 
 export const AuthContext = createContext();
 
+//TODO:: Dispatching 'LOGIN' Action
 export const authReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
@@ -12,16 +14,31 @@ export const authReducer = (state, action) => {
   }
 };
 
+
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
-    user: null,
+    user: null, //FIXME: global state
   });
 
   console.log('Auth Context state:', state);
 
+  // TODO: Provider children
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+
+--------------------------------------------------------------------------------------------------------------------
+_useSignup.js
+
+import { useAuthContext } from './useAuthContext';
+
+  //TODO: costum hooks useAuthContext
+  const { dispatch } = useAuthContext();
+
+      //TODO: Dispatch login action
+      dispatch({ type: 'LOGIN', payload: res.user });
+
