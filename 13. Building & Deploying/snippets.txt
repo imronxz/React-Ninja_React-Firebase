@@ -1,0 +1,3 @@
+Project Console: https://console.firebase.google.com/project/finance-tracker-react/overview
+Hosting URL: https://finance-tracker-react.web.app
+https://finance-tracker-react.firebaseapp.com/
