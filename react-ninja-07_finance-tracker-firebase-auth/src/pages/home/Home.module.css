@@ -70,26 +70,29 @@
 .transactions .name {
   color: #777;
   font-size: 1.4em;
+  color: #249c6b;
 }
 .transactions .amount {
   margin-left: auto;
   margin-right: 40px;
-  color: #777;
   font-weight: bold;
   font-size: 1.6em;
+  color: #249c6b;
 }
-.transactions button {
+
+/* delete db */
+.transactions img.delete {
   position: absolute;
-  top: 0;
-  right: 0;
-  background: red;
-  color: black;
-  border: none;
-  border-radius: 60%;
-  padding: 12px 8px;
-  text-align: center;
-  line-height: 0;
-  font-size: 0.9em;
+  top: 2px;
+  right: -2px;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
+  filter: invert(50%);
+}
+.container.dark,
+.transactions.dark .name {
+  background: rgb(0, 0, 0);
+  color: rgb(250, 0, 0);
 }

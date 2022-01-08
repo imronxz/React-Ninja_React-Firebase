@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 // Costum Hook
 import { useLogin } from '../../hooks/useLogin';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 // Styles
 import styles from './Login.module.css';
@@ -11,6 +12,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { mode } = useAuthContext();
   const { login, error, isPending } = useLogin();
 
   const handleSubmit = (e) => {
@@ -19,7 +21,7 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles['login-form']}>
+    <form onSubmit={handleSubmit} className={`${styles['login-form']} ${mode}`}>
       <h2>Login</h2>
       <label>
         <span>Email:</span>

@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+html {
+  width: 100%;
+  height: 100%;
+}
 
 /* base style */
 body {
   font-family: Poppins, sans-serif;
   margin: 0;
   font-size: 1.1em;
+  color: #249c6b;
 }
 ul,
 li,
@@ -17,21 +22,29 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+  color: #249c6b;
 }
 ul {
   list-style: none;
+  color: #249c6b;
 }
 .btn {
   background: none;
-  border: 2px solid #1f9751;
+  border: 2px solid #ffffff;
   padding: 6px 12px;
   border-radius: 4px;
-  color: #1f9751;
-  font-weight: bold;
-  cursor: pointer;
+  color: #ffffff;
   font-size: 1em;
+  cursor: pointer;
 }
 .btn:hover {
-  background: #1f9751;
-  color: #fff;
+  background: #ffffff;
+  color: rgb(206, 0, 0);
+  border: 2px solid #585757;
+}
+.App {
+  min-height: 100%;
+}
+.App.dark {
+  background: rgb(0, 0, 0);
 }

@@ -17,6 +17,16 @@ export const authReducer = (state, action) => {
       return { ...state, user: null };
     case 'AUTH_IS_READY':
       return { ...state, user: action.payload, authIsReady: true };
+    case 'CHANGE_COLOR':
+      return {
+        ...state,
+        color: action.payload,
+      };
+    case 'CHANGE_MODE':
+      return {
+        ...state,
+        mode: action.payload,
+      };
     default:
       return state;
   }
@@ -30,7 +40,19 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
     authIsReady: false,
+    color: '#58249c',
+    mode: 'dark',
   });
+
+  // * Reducer: Berfungsi mengubah value / state dari store
+  // * reducer: function yg akan mengubah state
+  const changeColor = (color) => {
+    dispatch({ type: 'CHANGE_COLOR', payload: color });
+  };
+
+  const changeMode = (mode) => {
+    dispatch({ type: 'CHANGE_MODE', payload: mode });
+  };
 
   /** TODO: Define onAuthStateChanged ->
    * unsubscribe from auth state changes
@@ -47,7 +69,9 @@ export const AuthContextProvider = ({ children }) => {
   console.log('Auth Context state:', state);
 
   return (
-    <AuthContext.Provider value={{ ...state, dispatch }}>
+    <AuthContext.Provider
+      value={{ ...state, dispatch, changeColor, changeMode }}
+    >
       {children}
     </AuthContext.Provider>
   );

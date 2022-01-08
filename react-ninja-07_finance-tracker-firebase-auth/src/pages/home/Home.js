@@ -10,7 +10,7 @@ import TransaksiForm from './TransaksiForm';
 import TransaksiList from './TransaksiList';
 
 export default function Home() {
-  const { user } = useAuthContext();
+  const { user, mode } = useAuthContext();
   const { documents, error } = useCollection(
     'transaksi',
     ['uid', '==', user.uid],
@@ -18,7 +18,7 @@ export default function Home() {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${mode}`}>
       <div className={styles.content}>
         {error && <p>{error}</p>}
         {documents && <TransaksiList transaksi={documents} />}

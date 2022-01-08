@@ -7,10 +7,10 @@ import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const { logout } = useLogout();
-  const { user } = useAuthContext();
+  const { user, color } = useAuthContext();
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} style={{ background: color }}>
       <ul>
         <li className={styles.title}>Uang Saya</li>
 
