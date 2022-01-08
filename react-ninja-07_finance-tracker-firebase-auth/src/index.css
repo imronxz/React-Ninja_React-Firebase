@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-html {
-  width: 100%;
-  height: 100%;
-}
 
 /* base style */
 body {
   font-family: Poppins, sans-serif;
   margin: 0;
   font-size: 1.1em;
-  color: #249c6b;
 }
 ul,
 li,
@@ -22,29 +17,59 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  color: #249c6b;
 }
 ul {
   list-style: none;
-  color: #249c6b;
 }
+
 .btn {
   background: none;
-  border: 2px solid #ffffff;
+  border: 2px solid #333;
   padding: 6px 12px;
   border-radius: 4px;
-  color: #ffffff;
+  color: #1b1b1b;
   font-size: 1em;
   cursor: pointer;
+  font-weight: bold;
 }
 .btn:hover {
-  background: #ffffff;
-  color: rgb(206, 0, 0);
-  border: 2px solid #585757;
+  color: #047433;
+  background: rgb(167, 167, 167);
+  border: 2px solid rgb(197, 197, 197);
+  text-decoration: underline;
 }
 .App {
   min-height: 100%;
 }
 .App.dark {
   background: rgb(0, 0, 0);
+  color: #fff;
+}
+.App.dark .btn {
+  color: #fff;
+  border: 2px solid #fff;
+}
+.App.dark .btn:hover {
+  /* color: #fff; */
+  color: #047433;
+  background: rgb(167, 167, 167);
+  border: 2px solid rgb(167, 167, 167);
+  text-decoration: underline;
+}
+/* .App.dark form {
+  padding: 20px;
+  background: #58249c;
+  border-radius: 10px;
+} */
+
+.App.dark ul,
+.App.dark li,
+.App.dark p,
+.App.dark h1,
+.App.dark h2,
+.App.dark h3,
+.App.dark h4,
+.App.dark h5,
+.App.dark h6 {
+  color: white;
 }

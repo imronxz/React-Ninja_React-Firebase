@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 .sidebar h3 {
-  color: #1f9751;
+  color: #000000;
   margin-bottom: 20px;
 }
 .sidebar aside {
@@ -70,14 +70,12 @@
 .transactions .name {
   color: #777;
   font-size: 1.4em;
-  color: #249c6b;
 }
 .transactions .amount {
   margin-left: auto;
   margin-right: 40px;
   font-weight: bold;
   font-size: 1.6em;
-  color: #249c6b;
 }
 
 /* delete db */
@@ -91,8 +89,9 @@
   cursor: pointer;
   filter: invert(50%);
 }
-.container.dark,
-.transactions.dark .name {
-  background: rgb(0, 0, 0);
-  color: rgb(250, 0, 0);
+
+.sidebar.dark form {
+  padding: 20px;
+  background: #58249c;
+  border-radius: 10px;
 }

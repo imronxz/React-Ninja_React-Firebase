@@ -10,7 +10,7 @@ import TransaksiForm from './TransaksiForm';
 import TransaksiList from './TransaksiList';
 
 export default function Home() {
-  const { user, mode } = useAuthContext();
+  const { user, mode, color } = useAuthContext();
   const { documents, error } = useCollection(
     'transaksi',
     ['uid', '==', user.uid],

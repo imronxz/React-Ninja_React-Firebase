@@ -8,14 +8,27 @@ import styles from './Home.module.css';
 
 export default function TransaksiList({ transaksi }) {
   const { deleteDocument } = useFirestore('transaksi');
-  const { mode } = useAuthContext();
+  const { color } = useAuthContext();
 
   return (
-    <ul className={`${styles.transactions} ${mode}`}>
+    <ul className={styles.transactions}>
       {transaksi.map((transaksi) => (
-        <li key={transaksi.id}>
-          <p className={styles.name}>{transaksi.name}</p>
-          <p className={styles.amount}>Rp. {transaksi.amount}</p>
+        <li
+          key={transaksi.id}
+          style={{
+            borderLeftColor: color,
+            borderTopColor: color,
+            borderBottomColor: color,
+            borderRightColor: color,
+          }}
+        >
+          <p className={styles.name} style={{ color: color }}>
+            {transaksi.name}
+          </p>
+
+          <p className={styles.amount} style={{ color: color }}>
+            Rp. {transaksi.amount}
+          </p>
           <img
             src={deleteIcon}
             alt="delete-icon"

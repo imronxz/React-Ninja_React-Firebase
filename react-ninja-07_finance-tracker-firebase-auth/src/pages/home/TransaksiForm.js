@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useFirestore } from '../../hooks/useFirestore';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 // Received {uid} props from Home.js
 export default function TransaksiForm({ uid }) {
@@ -8,6 +9,7 @@ export default function TransaksiForm({ uid }) {
   const [amount, setAmount] = useState('');
   // * useFirestore
   const { addDocument, response } = useFirestore('transaksi');
+  const { color } = useAuthContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ export default function TransaksiForm({ uid }) {
   return (
     <>
       <h3>Form Transaksi</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ background: color }}>
         <label>
           <span>Nama Transaksi:</span>
           <input
