@@ -13,8 +13,7 @@ export default function Home() {
   const { user } = useAuthContext();
   const { documents, error } = useCollection(
     'transaksi',
-    null,
-    /* ['uid', '==', user.uid], */
+    ['uid', '==', user.uid],
     ['createdAt', 'desc'],
   );
 
