@@ -23,7 +23,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* HACK: jika authIsReady from context == true -> return Router */}
       {authIsReady && (
         <BrowserRouter>
           <Sidebar />
