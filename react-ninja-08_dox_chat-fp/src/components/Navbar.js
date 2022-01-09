@@ -1,4 +1,8 @@
+// Router
 import { Link } from 'react-router-dom';
+
+// Costum Hooks
+import { useLogout } from '../hooks/useLogout';
 
 // Styles
 import './Navbar.css';
@@ -7,6 +11,9 @@ import './Navbar.css';
 import Temple from '../assets/temple.svg';
 
 export default function Navbar() {
+  // Costum Hooks
+  const { logout, isPending } = useLogout();
+
   return (
     <div className="navbar">
       <ul>
@@ -20,7 +27,16 @@ export default function Navbar() {
         <li>
           <Link to="/signup">Daftar</Link>
         </li>
-        <button className="btn">Keluar</button>
+        {!isPending && (
+          <button className="btn" onClick={logout}>
+            Keluar
+          </button>
+        )}
+        {isPending && (
+          <button className="btn" disabled>
+            Sedang Keluar..
+          </button>
+        )}
       </ul>
     </div>
   );
