@@ -1,28 +1,12 @@
-// Router
-import { Link } from 'react-router-dom';
+@Navbar.js
 
-// Costum Hooks
-import { useLogout } from '../hooks/useLogout';
+//TODO: context useAuthContext
 import { useAuthContext } from '../hooks/useAuthContext';
 
-// Styles
-import './Navbar.css';
-
-// Logo
-import Temple from '../assets/temple.svg';
-
-export default function Navbar() {
-  // Costum Hooks
-  const { logout, isPending } = useLogout();
+  //TODO: Costum hooks
   const { user } = useAuthContext();
 
-  return (
-    <div className="navbar">
-      <ul>
-        <li className="logo">
-          <img src={Temple} alt="logo app" />
-          <span>Dox Chats</span>
-        </li>
+  return(
         {!user && (
           <>
             <li>
@@ -47,7 +31,4 @@ export default function Navbar() {
             )}
           </li>
         )}
-      </ul>
-    </div>
-  );
-}
+  )
