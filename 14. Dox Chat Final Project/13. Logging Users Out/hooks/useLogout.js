@@ -12,21 +12,24 @@ export const useLogout = () => {
     setError(null);
     setIsPending(true);
 
-    // sign the user out
+    //TODO: Sign the user out/Logout
     try {
-      // Update online status
+      /** @projectFirestore: Firestore
+       *  @collection: collection/table
+       *  @doc: document/row
+       *  @update: Updates the document referred to by this document reference.
+       *  update: online: false
+       */
+      //* Update online status
       const { uid } = user;
-      await projectFirestore
-        .collection('users')
-        .doc(uid)
-        .update({ online: false });
+      await projectFirestore.collection('users').doc(uid).update({ online: false });
 
       await projectAuth.signOut();
 
-      // dispatch logout action
+      //* dispatch logout action
       dispatch({ type: 'LOGOUT' });
 
-      // update state
+      //* update state
       if (!isCancelled) {
         setIsPending(false);
         setError(null);

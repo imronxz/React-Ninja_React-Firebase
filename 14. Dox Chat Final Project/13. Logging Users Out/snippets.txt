@@ -1,0 +1,22 @@
+@useLogout.js
+
+import { projectAuth, projectFirestore } from '../firebase/config';
+
+const logout = async () => {
+  const { dispatch, user } = useAuthContext();
+
+    try{
+      /** @projectFirestore: Firestore
+       *  @collection: collection/table
+       *  @doc: document/row
+       *  @update: Updates the document referred to by this document reference.
+       *  update: online: false
+       */
+      //TODO: Update online status
+      const { uid } = user;
+      await projectFirestore.collection('users').doc(uid).update({ online: false });
+
+    } catch{
+
+    }
+}
