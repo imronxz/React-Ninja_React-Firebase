@@ -1,0 +1,18 @@
+@useSignup.js
+
+import { projectAuth, projectStorage, projectFirestore, } from '../firebase/config';
+
+      /** @projectFirestore: Firestore
+       *  @collection: collection/table
+       *  @doc: document/row
+       *  @set: Sets the data for this document.
+       *  set: online : true,
+       *  set: displayName: displayName,
+       *  set: photoURL: imgUrl,
+       */
+      //* create a new document users
+      await projectFirestore.collection('users').doc(res.user.uid).set({
+        online: true,
+        displayName,
+        photoURL: imgUrl,
+      });
