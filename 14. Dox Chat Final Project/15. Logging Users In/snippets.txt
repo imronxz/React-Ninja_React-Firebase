@@ -1,0 +1,29 @@
+@Login.js
+
+// Costum Hooks
+import { useLogin } from '../../hooks/useLogin';
+
+  // Costum hooks useLogin
+  const { login, isPending, error } = useLogin();
+
+  // TODO Handle Login
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(email, password);
+  };
+  
+      {!isPending && <button className="btn">Masuk</button>}
+      {isPending && (
+        <button className="btn" disabled>
+          Loading...
+        </button>
+      )}
+      {error && <div className="error">{error}</div>}
+--------------------------------------------------------------------------------------------------------------------
+@useLogin.js
+
+import { projectAuth, projectFirestore } from '../firebase/config';
+
+      // * Update status to online
+      await projectFirestore.collection('users').doc(res.user.uid)
+      .update({ online: true });
