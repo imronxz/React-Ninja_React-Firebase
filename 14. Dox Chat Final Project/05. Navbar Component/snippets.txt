@@ -1,0 +1,76 @@
+@Navbar.js
+
+import { Link } from 'react-router-dom';
+
+// Styles
+import './Navbar.css';
+
+// Logo
+import Temple from '../assets/temple.svg';
+
+export default function Navbar() {
+  return (
+    <div className="navbar">
+      <ul>
+        <li className="logo">
+          <img src={Temple} alt="logo app" />
+          <span>Dox Chats</span>
+        </li>
+        <li>
+          <Link to="/login">Masuk</Link>
+        </li>
+        <li>
+          <Link to="/signup">Daftar</Link>
+        </li>
+        <button className="btn">Keluar</button>
+      </ul>
+    </div>
+  );
+}
+
+@Navbar.css
+.navbar {
+  width: 100%;
+  padding: 30px 0;
+  box-sizing: border-box;
+  margin-bottom: 80px;
+}
+.navbar ul {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+}
+.navbar .logo {
+  font-weight: bold;
+  color: var(--heading-color);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+.navbar .logo img {
+  margin-right: 10px;
+  filter: invert(25%);
+  width: 36px;
+  margin-top: -8px;
+}
+.navbar a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 20px;
+}
+--------------------------------------------------------------------------------------------------------------------
+@App.js
+
+// Components
+import Navbar from './components/Navbar';
+
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <div className="container">
+          <Navbar />
+  )
+}
