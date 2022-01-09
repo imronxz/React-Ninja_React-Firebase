@@ -26,7 +26,6 @@ function App() {
       {/* HACK: jika authIsReady from context == true -> return Router */}
       {authIsReady && (
         <BrowserRouter>
-          {/* HACK: Hanya tampilkan Sidebar if user === true */}
           {user && <Sidebar />}
           <div className="container">
             <Navbar />
