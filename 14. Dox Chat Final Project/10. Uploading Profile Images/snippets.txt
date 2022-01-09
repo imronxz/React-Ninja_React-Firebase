@@ -1,0 +1,23 @@
+@useSignup.js
+
+import { projectAuth, projectStorage } from '../firebase/config';
+
+  // TODO: Property from SignupForm
+  const signup = async (email, password, displayName, thumbnail) => {
+      /** @uploadPath: Upload user thumbnail
+       *  @projectStorage: Firebase Storage
+       *  @ref: reference to firestore collection
+       *  @put:Uploads data to this reference's location.
+       *  @getDownloadURL: Fetches a long lived download URL for this object.
+       */
+      const uploadPath = `thumbnails/${res.user.uid}/${thumbnail.name}`;
+      const img = await projectStorage.ref(uploadPath).put(thumbnail);
+      const imgUrl = await img.ref.getDownloadURL();
+
+      /** @updateProfile: Updates a user's profile data.
+       *  @displayName: The new display name for the user.
+       *  @photoURL: The new URL for the user's profile picture.
+       */
+      //* add displayName and photoURL: imgUrl -> to user
+      await res.user.updateProfile({ displayName, photoURL: imgUrl });
+  };
