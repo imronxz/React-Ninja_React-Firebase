@@ -1,0 +1,8 @@
+@config.js
+
+import 'firebase/storage';
+
+// TODO: init services
+const projectStorage = firebase.storage();
+
+export { projectFirestore, projectAuth, projectStorage, timestamp };
