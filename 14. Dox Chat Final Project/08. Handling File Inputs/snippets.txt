@@ -1,0 +1,52 @@
+@Signup.js
+
+ const [thumbnailError, setThumbnailError] = useState(null);
+  /TODO:
+  const handleSubmit = (e) => { 
+    e.preventDefault();
+    console.log(email, password, displayName, thumbnail)
+  }
+
+  //TODO: upload image function
+  const uploadProfilePicture = (e) => {
+    setThumbnail(null);
+
+    let selected = e.target.files[0];
+    // console.log(selected);
+
+    if (!selected) {
+      setThumbnailError('Tidak ada gambar yang dipilih');
+      return;
+    }
+    if (!selected.type.includes('image')) {
+      setThumbnailError('Hanya gambar yang dapat diupload');
+      return;
+    }
+    if (selected.size > 1000000) {
+      setThumbnailError('Ukuran gambar maksimal 1MB');
+      return;
+    }
+    //TODO: * if everything is ok, set the image
+    setThumbnailError(null);
+    setThumbnail(selected);
+    console.log('Berhasil Upload Gambar');
+  };
+
+  return(
+    FIXME: onSubmit = {handleSubmit}
+    <form className="auth-form" onSubmit={ handleSubmit}>
+
+      <label>
+        <span>Foto Profile:</span>
+        <input
+          type="file"
+
+          FIXME: onChange={uploadProfilePicture}
+          onChange={uploadProfilePicture}
+          placeholder="Foto Profile"
+          required
+        />
+        {/*FIXME: output thumbnail if get error */}
+        {thumbnailError && <div className="error">{thumbnailError}</div>}
+      </label>
+  )
