@@ -1,0 +1,25 @@
+@Create.js
+
+const [formError, setFormError] = useState(null);
+
+export default function Create() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormError(null);
+
+    //TODO: * check if category fields are filled
+    if (!category) {
+      setFormError('Tolong pilih kategori project');
+      return;
+    }
+    //TODO: * check if assignedUsers fields are filled
+    if (assignedUsers.length < 1) {
+      setFormError('Tolong pilih user yang akan ditugaskan');
+    }
+
+    return(
+
+      {formError && <p className='error'>{ formError}</p>}
+
+    )    
+}
