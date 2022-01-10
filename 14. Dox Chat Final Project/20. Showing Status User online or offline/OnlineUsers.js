@@ -12,7 +12,7 @@ export default function OnlineUsers() {
 
   return (
     <div className="user-list">
-      <h2>All Users</h2>
+      <h2>Mahluk Online </h2>
       {error && <div className="error">{error}</div>}
       {documents &&
         documents.map((user) => (
