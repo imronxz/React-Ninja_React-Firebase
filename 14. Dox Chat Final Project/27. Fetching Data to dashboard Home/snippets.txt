@@ -1,0 +1,40 @@
+@Dashboard.js
+
+// costum hooks
+import { useCollection } from '../../hooks/useCollection';
+
+// components ProjectList
+import ProjectList from '../../components/ProjectList';
+
+// Styles
+import './Dashboard.css';
+
+export default function Dashboard() {
+  const { documents, error } = useCollection('projects');
+
+  return (
+    <div>
+      <h2 className="page-title">Dashboard Project</h2>
+      {error && <p className="error">{error}</p>}
+      {documents && <ProjectList projects={documents} />} //FIXME: props
+    </div>
+  );
+}
+
+--------------------------------------------------------------------------------------------------------
+@ProjectList.js
+
+// Styles
+import './ProjectList.css';
+
+export default function ProjectList({ projects }) {
+  return (
+    <div>
+      {projects.length === 0 && <p>Tidak ada project yang ditemukan</p>}
+      {projects.map((project) => (
+        <div key={project.id}>{project.name}</div>
+      ))}
+    </div>
+  );
+}
+
