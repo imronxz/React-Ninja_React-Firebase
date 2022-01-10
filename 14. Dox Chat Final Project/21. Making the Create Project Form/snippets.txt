@@ -1,3 +1,5 @@
+@Create.js
+
 // React Hooks
 import { useState } from 'react';
 
@@ -63,4 +65,9 @@ export default function Create() {
       </form>
     </div>
   );
+}
+
+@Create.css
+.create-form {
+  max-width: 600px;
 }
