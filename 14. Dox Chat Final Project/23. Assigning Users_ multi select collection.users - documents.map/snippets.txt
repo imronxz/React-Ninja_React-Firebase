@@ -1,0 +1,44 @@
+@Create.js
+
+// React Hooks
+import { useEffect, useState } from 'react';
+
+// Costume hooks Firestore.collection.users -> documents
+import { useCollection } from '../../hooks/useCollection';
+
+export default function Create() {
+  const { documents } = useCollection('users');
+  const [users, setUsers] = useState([]);
+    console.log(name, details, date, category.value, assignedUsers);
+  /** @documents is an array of objects
+   *  @documents.map(user) is an array of objects
+   *  @documents.map(user).map(user.displayName).map(user) is an array of objects
+   *  setUsers(documents.map(user).map(user.displayName))
+   *  dependencies: documents
+   */
+  useEffect(() => {
+    if (documents) {
+      const options = documents.map((user) => {
+        return { value: user, label: user.displayName };
+      });
+      setUsers(options);
+    }
+  }, [documents]);
+
+  return(
+          <span>User Related Project :</span>
+          {/** @users is an array of objects
+           *   @onChange={(option) => setAssignedUsers(option)}
+           *   @options={users}
+           *   isMulti={true} -> Multi Select
+           *   @placeholder="User Related Project"
+           *   dependencies: users
+           */}
+          <Select
+            onChange={(option) => setAssignedUsers(option)}
+            options={users}
+            isMulti
+            placeholder="Pilih User yang akan bekerja"
+          />
+  )
+}
