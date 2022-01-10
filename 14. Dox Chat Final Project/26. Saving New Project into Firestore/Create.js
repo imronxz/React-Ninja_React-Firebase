@@ -4,12 +4,9 @@ import { useEffect, useState } from 'react';
 // firebase/timestamp
 import { timestamp } from '../../firebase/config';
 
-//TODO: Costume hooks
-// collection Hooks
+// Costume hooks Firestore.collection.users -> documents
 import { useCollection } from '../../hooks/useCollection';
-// context Hooks
 import { useAuthContext } from '../../hooks/useAuthContext';
-// firestore Hooks
 import { useFirestore } from '../../hooks/useFirestore';
 
 // useHistory react-router-dom

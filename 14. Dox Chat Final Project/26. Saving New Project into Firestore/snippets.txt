@@ -1,0 +1,26 @@
+@Create.js
+
+// firestore Hooks
+import { useFirestore } from '../../hooks/useFirestore';
+
+// useHistory react-router-dom
+import { useHistory } from 'react-router-dom';
+
+export default function Create() {
+  //TODO: useFirestore : collection
+  const { addDocument, response } = useFirestore('projects');
+
+  //TODO: useHistory react-router-dom
+  const history = useHistory();
+
+  const handleSubmit = async (e) => {
+
+  }  
+  // TODO: add project to firestore
+  await addDocument(project);
+
+  //TODO: Jika berhasil, redirect ke halaman projects
+  if (!response.error) {
+    history.push('/');
+  }
+}
