@@ -1,0 +1,62 @@
+@Create.js
+
+// firebase/timestamp
+import { timestamp } from '../../firebase/config';
+
+// costume hooks 
+import { useAuthContext } from '../../hooks/useAuthContext';
+
+
+export default function Create() {
+  //TODO: useAuthContext : user -> createdAt
+  const { user } = useAuthContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormError(null);
+
+    /** @user context -> useAuthContext
+     *  displayName, photoURL, id
+     */
+    //HACK: using Costume Hooks: user -> displayName, photoURL, id
+    const createdBy = {
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      id: user.uid,
+    };
+
+    /** @TODO: assign project to users
+     *  @assignedUsersList: assignedUsers.map((user) => {object})
+     *  @assignedUsersList: [{displayName, photoURL, id}]
+     */
+    //HACK: mapping assignedUsers to new array of objects, only takes the value displayName, photoURL, id
+    const assignedUsersList = assignedUsers.map((user) => {
+      return {
+        displayName: user.value.displayName,
+        photoURL: user.value.photoURL,
+        id: user.value.id,
+      };
+    });
+
+    /** @Project: {name, details, date, category, comments, createdBy, assignedUsers}
+     *  @name: name,
+     *  @details: details,
+     *  @date: timestamp.fromDate(new Date(date)), -> firebase/timestamp
+     *  @category: category.value, -> value, label
+     *  @comments: [],
+     *  @createdBy: createdBy, -> costum hooks user(displayName, photoURL, id)
+     *  @assignedUsersList: assignedUsersList, -> assignedUsers.map[{displayName, photoURL, id}]
+     */
+    // TODO: create a new project object
+    const project = {
+      name,
+      details,
+      date: timestamp.fromDate(new Date(date)),
+      category: category.value,
+      comments: [],
+      createdBy,
+      assignedUsersList,
+    };
+    console.log(project);
+  };
+};
