@@ -1,0 +1,18 @@
+npm i react-select@5.0.
+@Create.js
+
+// react-select
+import Select from 'react-select';
+
+const categories = [
+  { value: 'development', label: 'Development' },
+  { value: 'design', label: 'Design' },
+  { value: 'sales', label: 'Sales' },
+  { value: 'marketing', label: 'Marketing' },
+];
+
+    console.log(name, details, date, category.value);
+
+    return(
+          <Select onChange={(option) => setCategory(option)} options={categories} />
+    )
