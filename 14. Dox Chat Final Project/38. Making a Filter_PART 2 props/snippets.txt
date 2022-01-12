@@ -1,18 +1,26 @@
-const filterList = [
-  'Semua',
-  'Project_Saya',
-  'development',
-  'design',
-  'marketing',
-  'sales',
-];
+@Dashboard.js
+
+import { useState } from 'react';
+
+  const [currentFilter, setCurrentFilter] = useState('Semua');
+
+  const changeFilter = (newFilter) => {
+    setCurrentFilter(newFilter);
+  };
+
+      {documents && (
+        <ProjectFilter currentFilter={currentFilter} changeFilter={changeFilter} />
+      )}
+--------------------------------------------------------------------------------------------------------
+@ProjectFilter.js
 
 export default function ProjectFilter({ currentFilter, changeFilter }) {
+
   const handleClick = (newFilter) => {
     changeFilter(newFilter);
   };
 
-  return (
+  return(
     <div className="project-filter">
       <nav>
         <p>Sort By:</p>
@@ -27,5 +35,4 @@ export default function ProjectFilter({ currentFilter, changeFilter }) {
         ))}
       </nav>
     </div>
-  );
-}
+  )
