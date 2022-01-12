@@ -13,12 +13,12 @@ export default function ProjectList({ projects }) {
       {projects.length === 0 && <p>Tidak ada project yang ditemukan</p>}
       {projects.map((project) => (
         <Link to={`/projects/${project.id}`} key={project.id}>
-          <h4>{project.name}</h4>
-          <p>{project.description}</p>
+          <h3>{project.name}</h3>
           <p>
             Dibuat Pada Tanggal: {project.date.toDate().toLocaleDateString('ID-ID')}
           </p>
           <div className="assigned-to">
+            <p>Collabs 🌃:</p>
             <ul>
               {project.assignedUsersList.map((user) => (
                 <li key={user.photoURL}>
@@ -26,6 +26,12 @@ export default function ProjectList({ projects }) {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="author">
+            <h6>
+              Creator Project: {project.createdBy.displayName}
+              <Avatar src={project.createdBy.photoURL} />
+            </h6>
           </div>
         </Link>
       ))}

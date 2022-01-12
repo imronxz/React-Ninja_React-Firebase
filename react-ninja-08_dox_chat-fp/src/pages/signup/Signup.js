@@ -74,6 +74,7 @@ export default function Signup() {
         <span>Username:</span>
         <input
           type="text"
+          maxLength={9}
           value={displayName}
           onChange={(e) => setDisplayName(e.target.value)}
           placeholder="Nama Lengkap"

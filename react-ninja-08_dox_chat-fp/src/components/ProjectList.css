@@ -1,5 +1,6 @@
 .project-list {
   margin-top: 40px;
+  margin-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 20px;
@@ -16,6 +17,14 @@
   font-size: 0.9em;
   color: var(--heading-color);
 }
+.project-list .author h6 {
+  font-size: 0.7em;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .project-list p {
   color: var(--text-color);
   font-size: 0.9em;
@@ -33,6 +42,6 @@
   margin-right: 10px;
 }
 .project-list .avatar {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
