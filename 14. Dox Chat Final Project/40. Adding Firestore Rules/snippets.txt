@@ -1,3 +1,5 @@
+ firebase deploy --only firestore
+
     match /users/{user_id}{
       allow read, create: if request.auth != null;
       allow update: if request.auth.uid == user_id;
