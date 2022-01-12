@@ -55,7 +55,7 @@ export default function Create() {
 
     // * check if category fields are filled
     if (!category) {
-      setFormError('Tolong pilih kategori project');
+      setFormError('Pilih salah satu kategori project');
       return;
     }
     // * check if assignedUsers fields are filled
@@ -133,27 +133,27 @@ export default function Create() {
       <h2 className="page-title">Buat Project Baru 🐱‍🏍</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Title :</span>
+          <span>Title Project 💬</span>
           <input
             type="text"
             required
             onChange={(e) => setName(e.target.value)}
             value={name}
-            placeholder="Nama Project"
+            placeholder="Judul Project"
           />
         </label>
         <label>
-          <span>Detail :</span>
+          <span>Details Project 📃</span>
           <textarea
             type="text"
             required
             onChange={(e) => setDetails(e.target.value)}
             value={details}
-            placeholder="Detail Project"
+            placeholder="Detail Project.."
           ></textarea>
         </label>
         <label>
-          <span>Tanggal :</span>
+          <span>Date Created 📅</span>
           <input
             type="date"
             required
@@ -162,16 +162,16 @@ export default function Create() {
           />
         </label>
         <label>
-          <span>Kategori Project:</span>
+          <span>Project Categories 🥇</span>
 
           <Select
             onChange={(option) => setCategory(option)}
             options={categories}
-            placeholder="Kategori"
+            placeholder="Kategori - Pilih salah satu"
           />
         </label>
         <label>
-          <span>Users yang ditugaskan :</span>
+          <span>Users Colaborations 👯‍♂️</span>
           {/** @users is an array of objects
            *   @onChange={(option) => setAssignedUsers(option)}
            *   @options={users}
