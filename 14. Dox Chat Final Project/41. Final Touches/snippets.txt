@@ -1,0 +1,13 @@
+npm i date-fns
+
+@ProjectComments.js
+
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+
+    <div className="comment-date">
+      <p>
+        {formatDistanceToNow(comment.createdAt.toDate(), {
+          addSuffix: true,
+        })}
+      </p>
+    </div>
