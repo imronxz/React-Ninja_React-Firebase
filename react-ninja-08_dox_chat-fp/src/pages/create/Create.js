@@ -60,7 +60,7 @@ export default function Create() {
     }
     // * check if assignedUsers fields are filled
     if (assignedUsers.length < 1) {
-      setFormError('Tolong pilih user yang akan ditugaskan');
+      setFormError('Pilih user yang akan bertugas');
     }
     /** @user context -> useAuthContext
      *  displayName, photoURL, id
