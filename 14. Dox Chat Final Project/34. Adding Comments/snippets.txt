@@ -1,0 +1,30 @@
+@ProjectComments.js
+
+import { useFirestore } from '../../hooks/useFirestore';
+
+export default function ProjectComments({ project }) {
+  const { updateDocument, response } = useFirestore('projects');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const commentToAdd = {
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      content: newComment,
+      createdAt: timestamp.fromDate(new Date()),
+      id: Date.now().toString().slice(5),
+    };
+    // TODO: updateDocument, response
+    await updateDocument(project.id, {
+      comments: [...project.comments, commentToAdd],
+    });
+    if (!response.error) {
+      setNewComment('');
+    }
+  };
+
+----------------------------------------------------------------------------------------------
+
+@Project.js
+      <ProjectComments project={document} />
