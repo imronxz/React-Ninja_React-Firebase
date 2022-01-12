@@ -20,13 +20,9 @@ export default function Dashboard() {
    *  @filterProjects = jika documents ada, maka filter projects, else null
    *  @filterProjects = documents.filter(document => switch(currentFilter))
    *  @'Semua' = semua projects
-   *  @'Project_Saya' = projects milik user, jika document.id === user.id, then true
-   *  @'Kolaborasi' = projects yang di kolaborasi dengan user, jika document.assignedUsersList(user.uid === u.id), then true
-   *  @'Development' = projects dengan category development
-   *  @'Design' = projects dengan category design
-   *  @'Marketing' = projects dengan category marketing
-   *  @'Sales' = projects dengan category sales
-   *  for category doc --> return document.category === currentFilter;
+   *  @'Project_Saya' = projects milik user,
+   *
+   *
    */
   const filterProjects = documents
     ? documents.filter((document) => {

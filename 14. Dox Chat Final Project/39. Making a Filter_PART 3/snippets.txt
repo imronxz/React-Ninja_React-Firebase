@@ -1,18 +1,8 @@
-import { useState } from 'react';
-import ProjectList from '../../components/ProjectList';
-import { useCollection } from '../../hooks/useCollection';
+@Dashboard.js
+
 import { useAuthContext } from '../../hooks/useAuthContext';
-
-// Styles
-import './Dashboard.css';
-import ProjectFilter from './ProjectFilter';
-
-export default function Dashboard() {
   const { user } = useAuthContext();
-  const { documents, error } = useCollection('projects');
-  const [currentFilter, setCurrentFilter] = useState('Semua');
-
-  const changeFilter = (newFilter) => {
+const changeFilter = (newFilter) => {
     setCurrentFilter(newFilter);
   };
 
@@ -58,15 +48,5 @@ export default function Dashboard() {
         }
       })
     : null;
-
-  return (
-    <div>
-      <h2 className="page-title">Project List 🐱‍🏍</h2>
-      {error && <p className="error">{error}</p>}
-      {documents && (
-        <ProjectFilter currentFilter={currentFilter} changeFilter={changeFilter} />
-      )}
+    
       {filterProjects && <ProjectList projects={filterProjects} />}
-    </div>
-  );
-}

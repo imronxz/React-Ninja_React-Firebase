@@ -1,10 +1,11 @@
 const filterList = [
   'Semua',
-  'Project_Saya',
-  'development',
-  'design',
-  'marketing',
-  'sales',
+  'Project Saya',
+  'Kolaborasi',
+  'Development',
+  'Design',
+  'Marketing',
+  'Sales',
 ];
 
 export default function ProjectFilter({ currentFilter, changeFilter }) {
